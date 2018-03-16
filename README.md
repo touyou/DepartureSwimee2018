@@ -39,9 +39,9 @@ $ git commit -m 'やった内容について説明'
 $ git push origin branch_name
 # ただしmaster pushはしないように
 # ブランチを新しく切る
-$ git branch -b new_branch_name
+$ git checkout -b new_branch_name
 # すでにあるブランチに移る
-$ git branch branch_name
+$ git checkout branch_name
 # サーバーの最新情報をとってくる
 $ git fetch
 # プルリク採用された後、masterの状態を更新する
