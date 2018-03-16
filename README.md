@@ -18,3 +18,38 @@
 - （現役）ニックネーム・プロフ写真登録設定画面 ... このデータを使って卒業メンター側のタイムラインを構成。登録時と設定の二箇所で可能。
 - （卒業）メッセージ一覧 ... 形式はデザイン次第だけど、一人ひとりのメッセージが見れる
 - （卒業）写真一覧 ... みんなから寄せられた写真を一覧で見れる
+
+## ご無沙汰な人のためのコマンド講座
+
+適宜追加。
+
+```sh
+# ディレクトリ（フォルダ）の移動。パスはドラッグ＆ドロップすると自動で入力
+$ cd その場所へのパス
+# Cocoapods自体を最新版にする
+$ sudo gem install cocoapods
+# Podの関係でうまく入ってなくてエラー出たら一旦
+$ pod install
+# Cocoapodsのライブラリを追加した後は
+$ pod install
+# アップデートするのは必要だと判断できる人だけで
+# ファイルを変更したら、そのディレクトリにいって以下。ここらへんはXcodeからできるようになっているのでそっちのほうが楽かも。
+$ git add .
+$ git commit -m 'やった内容について説明'
+$ git push origin branch_name
+# ただしmaster pushはしないように
+# ブランチを新しく切る
+$ git branch -b new_branch_name
+# すでにあるブランチに移る
+$ git branch branch_name
+# サーバーの最新情報をとってくる
+$ git fetch
+# プルリク採用された後、masterの状態を更新する
+$ git checkout master
+$ git pull origin master
+# 同じ名前のブランチがすでにあるけどもう新しくしたい
+$ git branch -D branch_name
+$ git checkout -b branch_name
+```
+
+あとpodについては適宜Podfileを見てライブラリのインストール方法のところでも見たら思い出すでしょう。
