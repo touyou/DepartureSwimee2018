@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43C25CE1BD19E4FBF6AD521B /* Pods_DepartureSwimee2018.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CDC978D128250EEC008300 /* Pods_DepartureSwimee2018.framework */; };
 		46071C87205BE530002AB83F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46071C86205BE530002AB83F /* AppDelegate.swift */; };
 		46071C89205BE530002AB83F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46071C88205BE530002AB83F /* ViewController.swift */; };
 		46071C8C205BE530002AB83F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8A205BE530002AB83F /* Main.storyboard */; };
 		46071C8E205BE530002AB83F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8D205BE530002AB83F /* Assets.xcassets */; };
 		46071C91205BE530002AB83F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8F205BE530002AB83F /* LaunchScreen.storyboard */; };
+		46071C9B205C0859002AB83F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46071C9A205C0858002AB83F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,10 @@
 		46071C8D205BE530002AB83F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46071C90205BE530002AB83F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46071C92205BE530002AB83F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46071C9A205C0858002AB83F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		50A3EFFF5757963253C97D51 /* Pods-DepartureSwimee2018.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DepartureSwimee2018.release.xcconfig"; path = "Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018.release.xcconfig"; sourceTree = "<group>"; };
+		DF9246C063FF178C5DB472D3 /* Pods-DepartureSwimee2018.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DepartureSwimee2018.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018.debug.xcconfig"; sourceTree = "<group>"; };
+		F7CDC978D128250EEC008300 /* Pods_DepartureSwimee2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DepartureSwimee2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43C25CE1BD19E4FBF6AD521B /* Pods_DepartureSwimee2018.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		164FD64071F3BAF6664654EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF9246C063FF178C5DB472D3 /* Pods-DepartureSwimee2018.debug.xcconfig */,
+				50A3EFFF5757963253C97D51 /* Pods-DepartureSwimee2018.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		46071C7A205BE52F002AB83F = {
 			isa = PBXGroup;
 			children = (
 				46071C85205BE530002AB83F /* DepartureSwimee2018 */,
 				46071C84205BE530002AB83F /* Products */,
+				164FD64071F3BAF6664654EC /* Pods */,
+				9F743A71EEE89B32804CECEE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +78,17 @@
 				46071C8D205BE530002AB83F /* Assets.xcassets */,
 				46071C8F205BE530002AB83F /* LaunchScreen.storyboard */,
 				46071C92205BE530002AB83F /* Info.plist */,
+				46071C9A205C0858002AB83F /* GoogleService-Info.plist */,
 			);
 			path = DepartureSwimee2018;
+			sourceTree = "<group>";
+		};
+		9F743A71EEE89B32804CECEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7CDC978D128250EEC008300 /* Pods_DepartureSwimee2018.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 46071C95205BE530002AB83F /* Build configuration list for PBXNativeTarget "DepartureSwimee2018" */;
 			buildPhases = (
+				6980DCB9C09D920F9E738877 /* [CP] Check Pods Manifest.lock */,
 				46071C7F205BE52F002AB83F /* Sources */,
 				46071C80205BE530002AB83F /* Frameworks */,
 				46071C81205BE530002AB83F /* Resources */,
+				FE9701B1F33C44C291245483 /* [CP] Embed Pods Frameworks */,
+				CC58D83303C9F5253902ADD6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,12 +154,69 @@
 			buildActionMask = 2147483647;
 			files = (
 				46071C91205BE530002AB83F /* LaunchScreen.storyboard in Resources */,
+				46071C9B205C0859002AB83F /* GoogleService-Info.plist in Resources */,
 				46071C8E205BE530002AB83F /* Assets.xcassets in Resources */,
 				46071C8C205BE530002AB83F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6980DCB9C09D920F9E738877 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DepartureSwimee2018-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC58D83303C9F5253902ADD6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE9701B1F33C44C291245483 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		46071C7F205BE52F002AB83F /* Sources */ = {
@@ -272,6 +359,7 @@
 		};
 		46071C96205BE530002AB83F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF9246C063FF178C5DB472D3 /* Pods-DepartureSwimee2018.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +375,7 @@
 		};
 		46071C97205BE530002AB83F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50A3EFFF5757963253C97D51 /* Pods-DepartureSwimee2018.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
