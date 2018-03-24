@@ -8,6 +8,7 @@
 - `git checkout -b mentor_name`などで自分の作業ブランチを切る
 - 適宜編集、そしたらプルリクをGitHub上で作成、レビュー依頼をいい感じに
 - デザインは design.sketch で。https://github.com/mathieudutour/git-sketch-plugin をなるべく入れておく。(AdobeXDでも開けるらしいからもしそっちがよかったらそっちでも可。)
+https://xd.adobe.com/spec/81457a19-b8bd-4f5b-a955-d7edd23dd70b
 - 仕様に対する提案はREADMEにプルリクをする
 - 見つけた問題や、他の人に投げたい仕事は適宜Issueに登録する
 
