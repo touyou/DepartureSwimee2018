@@ -14,6 +14,19 @@
 		46071C8E205BE530002AB83F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8D205BE530002AB83F /* Assets.xcassets */; };
 		46071C91205BE530002AB83F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8F205BE530002AB83F /* LaunchScreen.storyboard */; };
 		46071C9B205C0859002AB83F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46071C9A205C0858002AB83F /* GoogleService-Info.plist */; };
+		46E28EF4206F2A93007FB30D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE4206F2A92007FB30D /* UIView+Extensions.swift */; };
+		46E28EF6206F2A93007FB30D /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE6206F2A92007FB30D /* UITabBarController+Extensions.swift */; };
+		46E28EF7206F2A93007FB30D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE7206F2A92007FB30D /* UIColor+Extensions.swift */; };
+		46E28EF8206F2A93007FB30D /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE8206F2A92007FB30D /* UIApplication+Extensions.swift */; };
+		46E28EF9206F2A93007FB30D /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE9206F2A92007FB30D /* UIAlertController+Extensions.swift */; };
+		46E28EFA206F2A93007FB30D /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EEA206F2A92007FB30D /* UINavigationController+Extensions.swift */; };
+		46E28EFB206F2A93007FB30D /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EEB206F2A92007FB30D /* UITableView+Extensions.swift */; };
+		46E28EFC206F2A93007FB30D /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EEC206F2A92007FB30D /* UserDefaults+Extensions.swift */; };
+		46E28EFD206F2A93007FB30D /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EED206F2A92007FB30D /* URL+Extensions.swift */; };
+		46E28EFF206F2A93007FB30D /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EEF206F2A92007FB30D /* UICollectionView+Extensions.swift */; };
+		46E28F00206F2A93007FB30D /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EF1206F2A92007FB30D /* Reusable.swift */; };
+		46E28F01206F2A93007FB30D /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EF2206F2A92007FB30D /* NibLoadable.swift */; };
+		46E28F02206F2A93007FB30D /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EF3206F2A92007FB30D /* StoryboardInstantiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +38,19 @@
 		46071C90205BE530002AB83F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46071C92205BE530002AB83F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46071C9A205C0858002AB83F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		46E28EE4206F2A92007FB30D /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		46E28EE6206F2A92007FB30D /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
+		46E28EE7206F2A92007FB30D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		46E28EE8206F2A92007FB30D /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		46E28EE9206F2A92007FB30D /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		46E28EEA206F2A92007FB30D /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		46E28EEB206F2A92007FB30D /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		46E28EEC206F2A92007FB30D /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		46E28EED206F2A92007FB30D /* URL+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		46E28EEF206F2A92007FB30D /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		46E28EF1206F2A92007FB30D /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		46E28EF2206F2A92007FB30D /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		46E28EF3206F2A92007FB30D /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		50A3EFFF5757963253C97D51 /* Pods-DepartureSwimee2018.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DepartureSwimee2018.release.xcconfig"; path = "Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018.release.xcconfig"; sourceTree = "<group>"; };
 		DF9246C063FF178C5DB472D3 /* Pods-DepartureSwimee2018.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DepartureSwimee2018.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018.debug.xcconfig"; sourceTree = "<group>"; };
 		F7CDC978D128250EEC008300 /* Pods_DepartureSwimee2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DepartureSwimee2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +98,9 @@
 		46071C85205BE530002AB83F /* DepartureSwimee2018 */ = {
 			isa = PBXGroup;
 			children = (
+				46E28F03206F2A97007FB30D /* Top */,
+				46E28EE3206F2A92007FB30D /* Extensions */,
+				46E28EF0206F2A92007FB30D /* Protocols */,
 				46071C86205BE530002AB83F /* AppDelegate.swift */,
 				46071C88205BE530002AB83F /* ViewController.swift */,
 				46071C8A205BE530002AB83F /* Main.storyboard */,
@@ -81,6 +110,40 @@
 				46071C9A205C0858002AB83F /* GoogleService-Info.plist */,
 			);
 			path = DepartureSwimee2018;
+			sourceTree = "<group>";
+		};
+		46E28EE3206F2A92007FB30D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				46E28EE4206F2A92007FB30D /* UIView+Extensions.swift */,
+				46E28EE6206F2A92007FB30D /* UITabBarController+Extensions.swift */,
+				46E28EE7206F2A92007FB30D /* UIColor+Extensions.swift */,
+				46E28EE8206F2A92007FB30D /* UIApplication+Extensions.swift */,
+				46E28EE9206F2A92007FB30D /* UIAlertController+Extensions.swift */,
+				46E28EEA206F2A92007FB30D /* UINavigationController+Extensions.swift */,
+				46E28EEB206F2A92007FB30D /* UITableView+Extensions.swift */,
+				46E28EEC206F2A92007FB30D /* UserDefaults+Extensions.swift */,
+				46E28EED206F2A92007FB30D /* URL+Extensions.swift */,
+				46E28EEF206F2A92007FB30D /* UICollectionView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		46E28EF0206F2A92007FB30D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				46E28EF1206F2A92007FB30D /* Reusable.swift */,
+				46E28EF2206F2A92007FB30D /* NibLoadable.swift */,
+				46E28EF3206F2A92007FB30D /* StoryboardInstantiable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		46E28F03206F2A97007FB30D /* Top */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Top;
 			sourceTree = "<group>";
 		};
 		9F743A71EEE89B32804CECEE /* Frameworks */ = {
@@ -223,7 +286,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46E28EFF206F2A93007FB30D /* UICollectionView+Extensions.swift in Sources */,
+				46E28EF8206F2A93007FB30D /* UIApplication+Extensions.swift in Sources */,
+				46E28EFD206F2A93007FB30D /* URL+Extensions.swift in Sources */,
+				46E28EF4206F2A93007FB30D /* UIView+Extensions.swift in Sources */,
+				46E28EF9206F2A93007FB30D /* UIAlertController+Extensions.swift in Sources */,
+				46E28EF7206F2A93007FB30D /* UIColor+Extensions.swift in Sources */,
+				46E28EF6206F2A93007FB30D /* UITabBarController+Extensions.swift in Sources */,
+				46E28F02206F2A93007FB30D /* StoryboardInstantiable.swift in Sources */,
+				46E28EFB206F2A93007FB30D /* UITableView+Extensions.swift in Sources */,
+				46E28F01206F2A93007FB30D /* NibLoadable.swift in Sources */,
+				46E28F00206F2A93007FB30D /* Reusable.swift in Sources */,
 				46071C89205BE530002AB83F /* ViewController.swift in Sources */,
+				46E28EFC206F2A93007FB30D /* UserDefaults+Extensions.swift in Sources */,
+				46E28EFA206F2A93007FB30D /* UINavigationController+Extensions.swift in Sources */,
 				46071C87205BE530002AB83F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,11 +441,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4S4333JDW;
 				INFOPLIST_FILE = DepartureSwimee2018/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swimee.DepartureSwimee2018;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -381,11 +458,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4S4333JDW;
 				INFOPLIST_FILE = DepartureSwimee2018/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swimee.DepartureSwimee2018;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
