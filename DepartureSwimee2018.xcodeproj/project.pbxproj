@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		43C25CE1BD19E4FBF6AD521B /* Pods_DepartureSwimee2018.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CDC978D128250EEC008300 /* Pods_DepartureSwimee2018.framework */; };
 		46071C87205BE530002AB83F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46071C86205BE530002AB83F /* AppDelegate.swift */; };
-		46071C89205BE530002AB83F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46071C88205BE530002AB83F /* ViewController.swift */; };
+		46071C89205BE530002AB83F /* AccountBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46071C88205BE530002AB83F /* AccountBaseViewController.swift */; };
 		46071C8C205BE530002AB83F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8A205BE530002AB83F /* Main.storyboard */; };
 		46071C8E205BE530002AB83F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8D205BE530002AB83F /* Assets.xcassets */; };
 		46071C91205BE530002AB83F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8F205BE530002AB83F /* LaunchScreen.storyboard */; };
@@ -27,12 +27,24 @@
 		46E28F00206F2A93007FB30D /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EF1206F2A92007FB30D /* Reusable.swift */; };
 		46E28F01206F2A93007FB30D /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EF2206F2A92007FB30D /* NibLoadable.swift */; };
 		46E28F02206F2A93007FB30D /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EF3206F2A92007FB30D /* StoryboardInstantiable.swift */; };
+		46E28F07206F3D7C007FB30D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F06206F3D7C007FB30D /* LoginViewController.swift */; };
+		46E28F0A206F4A4E007FB30D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F09206F4A4E007FB30D /* RegisterViewController.swift */; };
+		46E28F0C206F4F84007FB30D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F0B206F4F84007FB30D /* MainViewController.swift */; };
+		46E28F0E206F5009007FB30D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F0D206F5009007FB30D /* PhotoViewController.swift */; };
+		46E28F10206F5013007FB30D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F0F206F5013007FB30D /* SettingViewController.swift */; };
+		46E28F11206F5085007FB30D /* AccountBaseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F08206F4883007FB30D /* AccountBaseViewController.storyboard */; };
+		46E28F13206F5953007FB30D /* 03スマートフォントUI.otf in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F12206F5953007FB30D /* 03スマートフォントUI.otf */; };
+		46E28F16206F5BB2007FB30D /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F14206F5BB2007FB30D /* MainCollectionViewCell.swift */; };
+		46E28F17206F5BB2007FB30D /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F15206F5BB2007FB30D /* MainCollectionViewCell.xib */; };
+		46E28F1A206F6064007FB30D /* prof.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F19206F6064007FB30D /* prof.jpg */; };
+		46E28F1D206F645A007FB30D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F1B206F645A007FB30D /* PhotoCollectionViewCell.swift */; };
+		46E28F1E206F645A007FB30D /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F1C206F645A007FB30D /* PhotoCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		46071C83205BE530002AB83F /* DepartureSwimee2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DepartureSwimee2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46071C86205BE530002AB83F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		46071C88205BE530002AB83F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		46071C88205BE530002AB83F /* AccountBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBaseViewController.swift; sourceTree = "<group>"; };
 		46071C8B205BE530002AB83F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		46071C8D205BE530002AB83F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46071C90205BE530002AB83F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +63,18 @@
 		46E28EF1206F2A92007FB30D /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		46E28EF2206F2A92007FB30D /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		46E28EF3206F2A92007FB30D /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		46E28F06206F3D7C007FB30D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		46E28F08206F4883007FB30D /* AccountBaseViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = AccountBaseViewController.storyboard; path = /Users/touyou/Projects/iOS/touyou/DepartureSwimee2018/DepartureSwimee2018/Scenes/AccountBaseViewController.storyboard; sourceTree = "<absolute>"; };
+		46E28F09206F4A4E007FB30D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		46E28F0B206F4F84007FB30D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		46E28F0D206F5009007FB30D /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		46E28F0F206F5013007FB30D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		46E28F12206F5953007FB30D /* 03スマートフォントUI.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "03スマートフォントUI.otf"; sourceTree = "<group>"; };
+		46E28F14206F5BB2007FB30D /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		46E28F15206F5BB2007FB30D /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
+		46E28F19206F6064007FB30D /* prof.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = prof.jpg; sourceTree = "<group>"; };
+		46E28F1B206F645A007FB30D /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		46E28F1C206F645A007FB30D /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		50A3EFFF5757963253C97D51 /* Pods-DepartureSwimee2018.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DepartureSwimee2018.release.xcconfig"; path = "Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018.release.xcconfig"; sourceTree = "<group>"; };
 		DF9246C063FF178C5DB472D3 /* Pods-DepartureSwimee2018.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DepartureSwimee2018.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018.debug.xcconfig"; sourceTree = "<group>"; };
 		F7CDC978D128250EEC008300 /* Pods_DepartureSwimee2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DepartureSwimee2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,16 +122,14 @@
 		46071C85205BE530002AB83F /* DepartureSwimee2018 */ = {
 			isa = PBXGroup;
 			children = (
-				46E28F03206F2A97007FB30D /* Top */,
+				46E28F05206F2D16007FB30D /* Launch */,
+				46E28F04206F2CF2007FB30D /* Settings */,
+				46E28F03206F2A97007FB30D /* Scenes */,
 				46E28EE3206F2A92007FB30D /* Extensions */,
 				46E28EF0206F2A92007FB30D /* Protocols */,
-				46071C86205BE530002AB83F /* AppDelegate.swift */,
-				46071C88205BE530002AB83F /* ViewController.swift */,
-				46071C8A205BE530002AB83F /* Main.storyboard */,
 				46071C8D205BE530002AB83F /* Assets.xcassets */,
-				46071C8F205BE530002AB83F /* LaunchScreen.storyboard */,
-				46071C92205BE530002AB83F /* Info.plist */,
-				46071C9A205C0858002AB83F /* GoogleService-Info.plist */,
+				46E28F19206F6064007FB30D /* prof.jpg */,
+				46E28F12206F5953007FB30D /* 03スマートフォントUI.otf */,
 			);
 			path = DepartureSwimee2018;
 			sourceTree = "<group>";
@@ -139,11 +161,41 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		46E28F03206F2A97007FB30D /* Top */ = {
+		46E28F03206F2A97007FB30D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				46071C88205BE530002AB83F /* AccountBaseViewController.swift */,
+				46E28F08206F4883007FB30D /* AccountBaseViewController.storyboard */,
+				46071C8A205BE530002AB83F /* Main.storyboard */,
+				46E28F06206F3D7C007FB30D /* LoginViewController.swift */,
+				46E28F09206F4A4E007FB30D /* RegisterViewController.swift */,
+				46E28F0B206F4F84007FB30D /* MainViewController.swift */,
+				46E28F0D206F5009007FB30D /* PhotoViewController.swift */,
+				46E28F0F206F5013007FB30D /* SettingViewController.swift */,
+				46E28F14206F5BB2007FB30D /* MainCollectionViewCell.swift */,
+				46E28F15206F5BB2007FB30D /* MainCollectionViewCell.xib */,
+				46E28F1B206F645A007FB30D /* PhotoCollectionViewCell.swift */,
+				46E28F1C206F645A007FB30D /* PhotoCollectionViewCell.xib */,
 			);
-			path = Top;
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		46E28F04206F2CF2007FB30D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				46071C92205BE530002AB83F /* Info.plist */,
+				46071C9A205C0858002AB83F /* GoogleService-Info.plist */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		46E28F05206F2D16007FB30D /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				46071C86205BE530002AB83F /* AppDelegate.swift */,
+				46071C8F205BE530002AB83F /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
 			sourceTree = "<group>";
 		};
 		9F743A71EEE89B32804CECEE /* Frameworks */ = {
@@ -184,7 +236,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Swimee;
 				TargetAttributes = {
 					46071C82205BE530002AB83F = {
@@ -216,10 +268,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46E28F13206F5953007FB30D /* 03スマートフォントUI.otf in Resources */,
+				46E28F11206F5085007FB30D /* AccountBaseViewController.storyboard in Resources */,
 				46071C91205BE530002AB83F /* LaunchScreen.storyboard in Resources */,
+				46E28F1E206F645A007FB30D /* PhotoCollectionViewCell.xib in Resources */,
 				46071C9B205C0859002AB83F /* GoogleService-Info.plist in Resources */,
 				46071C8E205BE530002AB83F /* Assets.xcassets in Resources */,
+				46E28F17206F5BB2007FB30D /* MainCollectionViewCell.xib in Resources */,
 				46071C8C205BE530002AB83F /* Main.storyboard in Resources */,
+				46E28F1A206F6064007FB30D /* prof.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,11 +323,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -293,13 +352,20 @@
 				46E28EF9206F2A93007FB30D /* UIAlertController+Extensions.swift in Sources */,
 				46E28EF7206F2A93007FB30D /* UIColor+Extensions.swift in Sources */,
 				46E28EF6206F2A93007FB30D /* UITabBarController+Extensions.swift in Sources */,
+				46E28F16206F5BB2007FB30D /* MainCollectionViewCell.swift in Sources */,
 				46E28F02206F2A93007FB30D /* StoryboardInstantiable.swift in Sources */,
+				46E28F1D206F645A007FB30D /* PhotoCollectionViewCell.swift in Sources */,
 				46E28EFB206F2A93007FB30D /* UITableView+Extensions.swift in Sources */,
 				46E28F01206F2A93007FB30D /* NibLoadable.swift in Sources */,
 				46E28F00206F2A93007FB30D /* Reusable.swift in Sources */,
-				46071C89205BE530002AB83F /* ViewController.swift in Sources */,
+				46071C89205BE530002AB83F /* AccountBaseViewController.swift in Sources */,
+				46E28F07206F3D7C007FB30D /* LoginViewController.swift in Sources */,
+				46E28F0A206F4A4E007FB30D /* RegisterViewController.swift in Sources */,
 				46E28EFC206F2A93007FB30D /* UserDefaults+Extensions.swift in Sources */,
+				46E28F10206F5013007FB30D /* SettingViewController.swift in Sources */,
+				46E28F0C206F4F84007FB30D /* MainViewController.swift in Sources */,
 				46E28EFA206F2A93007FB30D /* UINavigationController+Extensions.swift in Sources */,
+				46E28F0E206F5009007FB30D /* PhotoViewController.swift in Sources */,
 				46071C87205BE530002AB83F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +406,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -347,6 +414,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -397,6 +465,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -404,6 +473,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -440,7 +510,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4S4333JDW;
-				INFOPLIST_FILE = DepartureSwimee2018/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DepartureSwimee2018/Settings/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swimee.DepartureSwimee2018;
@@ -457,7 +527,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4S4333JDW;
-				INFOPLIST_FILE = DepartureSwimee2018/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DepartureSwimee2018/Settings/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swimee.DepartureSwimee2018;

@@ -7,5 +7,6 @@ target 'DepartureSwimee2018' do
 
   # Pods for DepartureSwimee2018
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
 
 end

@@ -14,11 +14,13 @@ extension UINavigationController {
 
     func setupBarColor() {
 
+        self.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationBar.barTintColor = UIColor.Swimee.barOrange
         self.navigationBar.tintColor = UIColor.white
         self.navigationBar.backgroundColor = UIColor.Swimee.barOrange
         if #available(iOS 11.0, *) {
             self.navigationBar.prefersLargeTitles = true
+            self.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         }
     }
 }
