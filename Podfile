@@ -8,5 +8,10 @@ target 'DepartureSwimee2018' do
   # Pods for DepartureSwimee2018
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'CodableFirebase'
+  pod 'Kingfisher'
 
 end

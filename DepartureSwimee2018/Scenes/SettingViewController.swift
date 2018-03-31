@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
+import Kingfisher
 
 class SettingViewController: UIViewController {
     
@@ -25,9 +26,10 @@ class SettingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-        if Auth.auth().currentUser != nil {
+        if FirebaseManager.shared.isLoggedIn {
             
-            // ログインしている場合はデータの読み込み
+            nameTextField.text = FirebaseManager.shared.loggedInUserName
+            iconImageView.kf.setImage(with: FirebaseManager.shared.photoURL)
         } else {
             
             let viewController = UINavigationController(rootViewController: AccountBaseViewController.instantiate())
@@ -37,6 +39,8 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func tapUpdateButton() {
+        
+        FirebaseManager.shared.updateUserInfo(displayName: nameTextField.text, {})
     }
     
     @IBAction func tapLogoutButton() {

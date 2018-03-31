@@ -14,8 +14,10 @@
 		46071C8E205BE530002AB83F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8D205BE530002AB83F /* Assets.xcassets */; };
 		46071C91205BE530002AB83F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8F205BE530002AB83F /* LaunchScreen.storyboard */; };
 		46071C9B205C0859002AB83F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46071C9A205C0858002AB83F /* GoogleService-Info.plist */; };
+		462FB55E206FC28300145B4B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FB55D206FC28300145B4B /* FirebaseManager.swift */; };
 		46ABB1BF206F812200262F75 /* MessageTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */; };
 		46ABB1C1206F812D00262F75 /* MessageTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46ABB1C0206F812D00262F75 /* MessageTableHeaderView.xib */; };
+		46ABB1C4206F8B0900262F75 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABB1C3206F8B0900262F75 /* Message.swift */; };
 		46E28EF4206F2A93007FB30D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE4206F2A92007FB30D /* UIView+Extensions.swift */; };
 		46E28EF6206F2A93007FB30D /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE6206F2A92007FB30D /* UITabBarController+Extensions.swift */; };
 		46E28EF7206F2A93007FB30D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE7206F2A92007FB30D /* UIColor+Extensions.swift */; };
@@ -59,8 +61,10 @@
 		46071C90205BE530002AB83F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46071C92205BE530002AB83F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46071C9A205C0858002AB83F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		462FB55D206FC28300145B4B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		46ABB1C0206F812D00262F75 /* MessageTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableHeaderView.xib; sourceTree = "<group>"; };
+		46ABB1C3206F8B0900262F75 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		46E28EE4206F2A92007FB30D /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		46E28EE6206F2A92007FB30D /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
 		46E28EE7206F2A92007FB30D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 		46071C85205BE530002AB83F /* DepartureSwimee2018 */ = {
 			isa = PBXGroup;
 			children = (
+				462FB55C206FC27500145B4B /* Manager */,
+				46ABB1C2206F8AF500262F75 /* Model */,
 				46E28F05206F2D16007FB30D /* Launch */,
 				46E28F04206F2CF2007FB30D /* Settings */,
 				46E28F03206F2A97007FB30D /* Scenes */,
@@ -150,6 +156,22 @@
 				46E28F12206F5953007FB30D /* 03スマートフォントUI.otf */,
 			);
 			path = DepartureSwimee2018;
+			sourceTree = "<group>";
+		};
+		462FB55C206FC27500145B4B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				462FB55D206FC28300145B4B /* FirebaseManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		46ABB1C2206F8AF500262F75 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				46ABB1C3206F8B0900262F75 /* Message.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		46E28EE3206F2A92007FB30D /* Extensions */ = {
@@ -354,14 +376,32 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +429,7 @@
 				46E28F29206F6EAF007FB30D /* AddTableViewCell.swift in Sources */,
 				46E28F1D206F645A007FB30D /* PhotoCollectionViewCell.swift in Sources */,
 				46E28EFB206F2A93007FB30D /* UITableView+Extensions.swift in Sources */,
+				46ABB1C4206F8B0900262F75 /* Message.swift in Sources */,
 				46E28F01206F2A93007FB30D /* NibLoadable.swift in Sources */,
 				46E28F2C206F794E007FB30D /* MessageViewController.swift in Sources */,
 				46E28F00206F2A93007FB30D /* Reusable.swift in Sources */,
@@ -402,6 +443,7 @@
 				46ABB1BF206F812200262F75 /* MessageTableViewHeaderFooterView.swift in Sources */,
 				46E28EFA206F2A93007FB30D /* UINavigationController+Extensions.swift in Sources */,
 				46E28F0E206F5009007FB30D /* PhotoViewController.swift in Sources */,
+				462FB55E206FC28300145B4B /* FirebaseManager.swift in Sources */,
 				46071C87205BE530002AB83F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
