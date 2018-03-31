@@ -14,6 +14,8 @@
 		46071C8E205BE530002AB83F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8D205BE530002AB83F /* Assets.xcassets */; };
 		46071C91205BE530002AB83F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8F205BE530002AB83F /* LaunchScreen.storyboard */; };
 		46071C9B205C0859002AB83F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46071C9A205C0858002AB83F /* GoogleService-Info.plist */; };
+		46ABB1BF206F812200262F75 /* MessageTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */; };
+		46ABB1C1206F812D00262F75 /* MessageTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46ABB1C0206F812D00262F75 /* MessageTableHeaderView.xib */; };
 		46E28EF4206F2A93007FB30D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE4206F2A92007FB30D /* UIView+Extensions.swift */; };
 		46E28EF6206F2A93007FB30D /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE6206F2A92007FB30D /* UITabBarController+Extensions.swift */; };
 		46E28EF7206F2A93007FB30D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE7206F2A92007FB30D /* UIColor+Extensions.swift */; };
@@ -39,6 +41,13 @@
 		46E28F1A206F6064007FB30D /* prof.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F19206F6064007FB30D /* prof.jpg */; };
 		46E28F1D206F645A007FB30D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F1B206F645A007FB30D /* PhotoCollectionViewCell.swift */; };
 		46E28F1E206F645A007FB30D /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F1C206F645A007FB30D /* PhotoCollectionViewCell.xib */; };
+		46E28F21206F6E83007FB30D /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F1F206F6E83007FB30D /* MessageTableViewCell.swift */; };
+		46E28F22206F6E83007FB30D /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F20206F6E83007FB30D /* MessageTableViewCell.xib */; };
+		46E28F25206F6EA3007FB30D /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F23206F6EA3007FB30D /* ImageTableViewCell.swift */; };
+		46E28F26206F6EA3007FB30D /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F24206F6EA3007FB30D /* ImageTableViewCell.xib */; };
+		46E28F29206F6EAF007FB30D /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F27206F6EAF007FB30D /* AddTableViewCell.swift */; };
+		46E28F2A206F6EAF007FB30D /* AddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F28206F6EAF007FB30D /* AddTableViewCell.xib */; };
+		46E28F2C206F794E007FB30D /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F2B206F794E007FB30D /* MessageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +59,8 @@
 		46071C90205BE530002AB83F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46071C92205BE530002AB83F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46071C9A205C0858002AB83F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		46ABB1C0206F812D00262F75 /* MessageTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableHeaderView.xib; sourceTree = "<group>"; };
 		46E28EE4206F2A92007FB30D /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		46E28EE6206F2A92007FB30D /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
 		46E28EE7206F2A92007FB30D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -75,6 +86,13 @@
 		46E28F19206F6064007FB30D /* prof.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = prof.jpg; sourceTree = "<group>"; };
 		46E28F1B206F645A007FB30D /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		46E28F1C206F645A007FB30D /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		46E28F1F206F6E83007FB30D /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		46E28F20206F6E83007FB30D /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		46E28F23206F6EA3007FB30D /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		46E28F24206F6EA3007FB30D /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		46E28F27206F6EAF007FB30D /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
+		46E28F28206F6EAF007FB30D /* AddTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTableViewCell.xib; sourceTree = "<group>"; };
+		46E28F2B206F794E007FB30D /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		50A3EFFF5757963253C97D51 /* Pods-DepartureSwimee2018.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DepartureSwimee2018.release.xcconfig"; path = "Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018.release.xcconfig"; sourceTree = "<group>"; };
 		DF9246C063FF178C5DB472D3 /* Pods-DepartureSwimee2018.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DepartureSwimee2018.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DepartureSwimee2018/Pods-DepartureSwimee2018.debug.xcconfig"; sourceTree = "<group>"; };
 		F7CDC978D128250EEC008300 /* Pods_DepartureSwimee2018.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DepartureSwimee2018.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +194,15 @@
 				46E28F15206F5BB2007FB30D /* MainCollectionViewCell.xib */,
 				46E28F1B206F645A007FB30D /* PhotoCollectionViewCell.swift */,
 				46E28F1C206F645A007FB30D /* PhotoCollectionViewCell.xib */,
+				46E28F1F206F6E83007FB30D /* MessageTableViewCell.swift */,
+				46E28F20206F6E83007FB30D /* MessageTableViewCell.xib */,
+				46E28F23206F6EA3007FB30D /* ImageTableViewCell.swift */,
+				46E28F24206F6EA3007FB30D /* ImageTableViewCell.xib */,
+				46E28F27206F6EAF007FB30D /* AddTableViewCell.swift */,
+				46E28F28206F6EAF007FB30D /* AddTableViewCell.xib */,
+				46E28F2B206F794E007FB30D /* MessageViewController.swift */,
+				46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */,
+				46ABB1C0206F812D00262F75 /* MessageTableHeaderView.xib */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -272,9 +299,13 @@
 				46E28F11206F5085007FB30D /* AccountBaseViewController.storyboard in Resources */,
 				46071C91205BE530002AB83F /* LaunchScreen.storyboard in Resources */,
 				46E28F1E206F645A007FB30D /* PhotoCollectionViewCell.xib in Resources */,
+				46E28F26206F6EA3007FB30D /* ImageTableViewCell.xib in Resources */,
 				46071C9B205C0859002AB83F /* GoogleService-Info.plist in Resources */,
 				46071C8E205BE530002AB83F /* Assets.xcassets in Resources */,
+				46ABB1C1206F812D00262F75 /* MessageTableHeaderView.xib in Resources */,
 				46E28F17206F5BB2007FB30D /* MainCollectionViewCell.xib in Resources */,
+				46E28F22206F6E83007FB30D /* MessageTableViewCell.xib in Resources */,
+				46E28F2A206F6EAF007FB30D /* AddTableViewCell.xib in Resources */,
 				46071C8C205BE530002AB83F /* Main.storyboard in Resources */,
 				46E28F1A206F6064007FB30D /* prof.jpg in Resources */,
 			);
@@ -354,9 +385,12 @@
 				46E28EF6206F2A93007FB30D /* UITabBarController+Extensions.swift in Sources */,
 				46E28F16206F5BB2007FB30D /* MainCollectionViewCell.swift in Sources */,
 				46E28F02206F2A93007FB30D /* StoryboardInstantiable.swift in Sources */,
+				46E28F25206F6EA3007FB30D /* ImageTableViewCell.swift in Sources */,
+				46E28F29206F6EAF007FB30D /* AddTableViewCell.swift in Sources */,
 				46E28F1D206F645A007FB30D /* PhotoCollectionViewCell.swift in Sources */,
 				46E28EFB206F2A93007FB30D /* UITableView+Extensions.swift in Sources */,
 				46E28F01206F2A93007FB30D /* NibLoadable.swift in Sources */,
+				46E28F2C206F794E007FB30D /* MessageViewController.swift in Sources */,
 				46E28F00206F2A93007FB30D /* Reusable.swift in Sources */,
 				46071C89205BE530002AB83F /* AccountBaseViewController.swift in Sources */,
 				46E28F07206F3D7C007FB30D /* LoginViewController.swift in Sources */,
@@ -364,6 +398,8 @@
 				46E28EFC206F2A93007FB30D /* UserDefaults+Extensions.swift in Sources */,
 				46E28F10206F5013007FB30D /* SettingViewController.swift in Sources */,
 				46E28F0C206F4F84007FB30D /* MainViewController.swift in Sources */,
+				46E28F21206F6E83007FB30D /* MessageTableViewCell.swift in Sources */,
+				46ABB1BF206F812200262F75 /* MessageTableViewHeaderFooterView.swift in Sources */,
 				46E28EFA206F2A93007FB30D /* UINavigationController+Extensions.swift in Sources */,
 				46E28F0E206F5009007FB30D /* PhotoViewController.swift in Sources */,
 				46071C87205BE530002AB83F /* AppDelegate.swift in Sources */,
