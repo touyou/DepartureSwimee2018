@@ -16,7 +16,7 @@
 		46071C9B205C0859002AB83F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46071C9A205C0858002AB83F /* GoogleService-Info.plist */; };
 		462FB55E206FC28300145B4B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FB55D206FC28300145B4B /* FirebaseManager.swift */; };
 		46ABB1BF206F812200262F75 /* MessageTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */; };
-		46ABB1C1206F812D00262F75 /* MessageTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46ABB1C0206F812D00262F75 /* MessageTableHeaderView.xib */; };
+		46ABB1C1206F812D00262F75 /* MessageTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46ABB1C0206F812D00262F75 /* MessageTableViewHeaderFooterView.xib */; };
 		46ABB1C4206F8B0900262F75 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABB1C3206F8B0900262F75 /* Message.swift */; };
 		46E28EF4206F2A93007FB30D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE4206F2A92007FB30D /* UIView+Extensions.swift */; };
 		46E28EF6206F2A93007FB30D /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE6206F2A92007FB30D /* UITabBarController+Extensions.swift */; };
@@ -63,7 +63,7 @@
 		46071C9A205C0858002AB83F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		462FB55D206FC28300145B4B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
-		46ABB1C0206F812D00262F75 /* MessageTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableHeaderView.xib; sourceTree = "<group>"; };
+		46ABB1C0206F812D00262F75 /* MessageTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		46ABB1C3206F8B0900262F75 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		46E28EE4206F2A92007FB30D /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		46E28EE6206F2A92007FB30D /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 				46E28F28206F6EAF007FB30D /* AddTableViewCell.xib */,
 				46E28F2B206F794E007FB30D /* MessageViewController.swift */,
 				46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */,
-				46ABB1C0206F812D00262F75 /* MessageTableHeaderView.xib */,
+				46ABB1C0206F812D00262F75 /* MessageTableViewHeaderFooterView.xib */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 				46E28F26206F6EA3007FB30D /* ImageTableViewCell.xib in Resources */,
 				46071C9B205C0859002AB83F /* GoogleService-Info.plist in Resources */,
 				46071C8E205BE530002AB83F /* Assets.xcassets in Resources */,
-				46ABB1C1206F812D00262F75 /* MessageTableHeaderView.xib in Resources */,
+				46ABB1C1206F812D00262F75 /* MessageTableViewHeaderFooterView.xib in Resources */,
 				46E28F17206F5BB2007FB30D /* MainCollectionViewCell.xib in Resources */,
 				46E28F22206F6E83007FB30D /* MessageTableViewCell.xib in Resources */,
 				46E28F2A206F6EAF007FB30D /* AddTableViewCell.xib in Resources */,

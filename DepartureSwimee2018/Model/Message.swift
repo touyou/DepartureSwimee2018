@@ -11,8 +11,11 @@ import Foundation
 struct Message: Codable {
     
     let fromUser: String
-    let messages: [String]
-    let photos: [Photo]
+    let message: String?
+    let photoUrl: URL?
+    let key: String
+    let gradPhotoKey: String?
+    let currentPhotoKey: String?
 }
 
 struct Photo: Codable {

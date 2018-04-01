@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="202" height="202"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PfP-4B-qtb">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PfP-4B-qtb">
                         <rect key="frame" x="0.0" y="0.0" width="202" height="202"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="PfP-4B-qtb" secondAttribute="height" multiplier="1:1" id="1aF-86-B5B"/>

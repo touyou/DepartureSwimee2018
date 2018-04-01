@@ -12,28 +12,58 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MessageTableViewCell" customModule="DepartureSwimee2018" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="MessageTableViewCell" customModule="DepartureSwimee2018" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="337" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="337" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtd-tp-UzM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwK-ir-QHr">
+                        <rect key="frame" x="10" y="5" width="317" height="69.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtd-tp-UzM">
+                                <rect key="frame" x="10" y="10" width="297" height="49.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Mtd-tp-UzM" firstAttribute="leading" secondItem="zwK-ir-QHr" secondAttribute="leading" constant="10" id="Lk5-lz-0My"/>
+                            <constraint firstItem="Mtd-tp-UzM" firstAttribute="top" secondItem="zwK-ir-QHr" secondAttribute="top" constant="10" id="UR1-Pa-O9P"/>
+                            <constraint firstAttribute="trailing" secondItem="Mtd-tp-UzM" secondAttribute="trailing" constant="10" id="bu8-w1-igv"/>
+                            <constraint firstAttribute="bottom" secondItem="Mtd-tp-UzM" secondAttribute="bottom" constant="10" id="eXw-3Z-jMR"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.10000000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Mtd-tp-UzM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1hS-cd-2Qu"/>
-                    <constraint firstAttribute="trailing" secondItem="Mtd-tp-UzM" secondAttribute="trailing" id="Ax0-m7-E6c"/>
-                    <constraint firstAttribute="bottom" secondItem="Mtd-tp-UzM" secondAttribute="bottom" id="P6l-ja-CDt"/>
-                    <constraint firstItem="Mtd-tp-UzM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ZEA-Fs-7gE"/>
+                    <constraint firstItem="zwK-ir-QHr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="O5o-hc-lOA"/>
+                    <constraint firstAttribute="bottom" secondItem="zwK-ir-QHr" secondAttribute="bottom" constant="5" id="Rtm-fs-DYK"/>
+                    <constraint firstItem="zwK-ir-QHr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="iCV-Ns-U9h"/>
+                    <constraint firstAttribute="trailing" secondItem="zwK-ir-QHr" secondAttribute="trailing" constant="10" id="qPb-DI-UPT"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="messageLabel" destination="Mtd-tp-UzM" id="djz-Sk-Nhl"/>
+            </connections>
+            <point key="canvasLocation" x="43.5" y="72"/>
         </tableViewCell>
     </objects>
 </document>

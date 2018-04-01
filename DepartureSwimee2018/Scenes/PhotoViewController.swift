@@ -38,7 +38,7 @@ class PhotoViewController: UIViewController {
             
             /// 卒業生はみんなから送られてきた写真、その他の人は自分が送った写真が見れるようにする
             /// つまり写真を送るときは二箇所に保存しておく
-            Database.database().reference().child("photos").child(FirebaseManager.shared.isGrad ? "current" : "grad").child(FirebaseManager.shared.uid ?? "unknown").observe(.value, with: { [unowned self] snapshot in
+            Database.database().reference().child("photos").child(FirebaseManager.shared.isGrad ? "grad" : "current").child(FirebaseManager.shared.uid).observe(.value, with: { [unowned self] snapshot in
                 
                 let children = snapshot.children.map { ($0 as! DataSnapshot).value }
                 do {
@@ -55,7 +55,7 @@ class PhotoViewController: UIViewController {
     
     deinit {
         
-        Database.database().reference().child("photos").child(FirebaseManager.shared.isGrad ? "current" : "grad").child(FirebaseManager.shared.uid ?? "unknown").removeAllObservers()
+        Database.database().reference().child("photos").child(FirebaseManager.shared.isGrad ? "current" : "grad").child(FirebaseManager.shared.uid).removeAllObservers()
     }
 }
 

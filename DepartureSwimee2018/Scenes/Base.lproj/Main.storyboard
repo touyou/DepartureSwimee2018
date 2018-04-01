@@ -248,7 +248,7 @@
                     <navigationItem key="navigationItem" id="3X3-YK-DbT"/>
                     <connections>
                         <outlet property="collectionView" destination="a5v-et-jqf" id="UN4-63-yei"/>
-                        <segue destination="OS1-tX-0sJ" kind="show" id="weB-BS-dRN"/>
+                        <segue destination="OS1-tX-0sJ" kind="show" identifier="toMessage" id="weB-BS-dRN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xb-23-cgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

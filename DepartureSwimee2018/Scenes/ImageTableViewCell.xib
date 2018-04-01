@@ -19,18 +19,53 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lcx-oi-BWJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhF-ir-ZRp">
+                        <rect key="frame" x="10" y="5" width="300" height="33.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lcx-oi-BWJ">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="33"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="RRv-Hi-Na1"/>
+                            <constraint firstAttribute="bottom" secondItem="lcx-oi-BWJ" secondAttribute="bottom" id="f33-Sy-4a0"/>
+                            <constraint firstItem="lcx-oi-BWJ" firstAttribute="top" secondItem="zhF-ir-ZRp" secondAttribute="top" id="iGy-AX-qMS"/>
+                            <constraint firstItem="lcx-oi-BWJ" firstAttribute="leading" secondItem="zhF-ir-ZRp" secondAttribute="leading" id="rfQ-TF-YGP"/>
+                            <constraint firstAttribute="trailing" secondItem="lcx-oi-BWJ" secondAttribute="trailing" id="zF4-fp-nhQ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.10000000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="lcx-oi-BWJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2rC-2V-dFS"/>
-                    <constraint firstItem="lcx-oi-BWJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="I46-Tc-emy"/>
-                    <constraint firstAttribute="trailing" secondItem="lcx-oi-BWJ" secondAttribute="trailing" id="Uo6-IS-UH5"/>
-                    <constraint firstAttribute="bottom" secondItem="lcx-oi-BWJ" secondAttribute="bottom" id="WJW-Q5-FLg"/>
+                    <constraint firstAttribute="bottom" secondItem="zhF-ir-ZRp" secondAttribute="bottom" constant="5" id="DSK-5x-3up"/>
+                    <constraint firstItem="zhF-ir-ZRp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Wsf-Mw-yi3"/>
+                    <constraint firstItem="zhF-ir-ZRp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="k9X-Py-aWD"/>
+                    <constraint firstAttribute="trailing" secondItem="zhF-ir-ZRp" secondAttribute="trailing" constant="10" id="wId-Nq-IBE"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="mainImageView" destination="lcx-oi-BWJ" id="zej-dY-ZHg"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

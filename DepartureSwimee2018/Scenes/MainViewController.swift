@@ -51,9 +51,9 @@ class MainViewController: UIViewController {
                 }
             })
             // 自分のデータもついでに登録しておく
-            let me = User(name: FirebaseManager.shared.loggedInUserName, iconUrl: FirebaseManager.shared.photoURL, uid: FirebaseManager.shared.uid ?? "unknown")
+            let me = User(name: FirebaseManager.shared.loggedInUserName, iconUrl: FirebaseManager.shared.photoURL, uid: FirebaseManager.shared.uid)
             let data = try! FirebaseEncoder().encode(me)
-            Database.database().reference().child("users").child(FirebaseManager.shared.isGrad ? "grad" : "current").child(FirebaseManager.shared.uid ?? "unknown").setValue(data)
+            Database.database().reference().child("users").child(FirebaseManager.shared.isGrad ? "grad" : "current").child(FirebaseManager.shared.uid).setValue(data)
         } else {
             
             let viewController = UINavigationController(rootViewController: AccountBaseViewController.instantiate())
@@ -65,6 +65,15 @@ class MainViewController: UIViewController {
     deinit {
         
         Database.database().reference().child("users").child(FirebaseManager.shared.isGrad ? "current" : "grad").removeAllObservers()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toMessage" {
+            
+            let viewController = segue.destination as! MessageViewController
+            viewController.opponentUid = users[sender as! Int].uid
+        }
     }
 }
 
@@ -93,7 +102,7 @@ extension MainViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        // TODO: メッセージ登録画面などに行く
+        performSegue(withIdentifier: "toMessage", sender: indexPath.row)
     }
 }
 

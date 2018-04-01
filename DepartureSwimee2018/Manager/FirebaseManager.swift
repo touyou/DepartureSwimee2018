@@ -34,9 +34,9 @@ class FirebaseManager {
         return Auth.auth().currentUser?.photoURL
     }
     
-    var uid: String? {
+    var uid: String {
         
-        return Auth.auth().currentUser?.uid
+        return Auth.auth().currentUser?.uid ?? "unknown"
     }
     
     var isGrad: Bool {
