@@ -7,7 +7,9 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
+import CodableFirebase
+import Kingfisher
 
 class MainViewController: UIViewController {
     
@@ -21,6 +23,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    var users: [User] = []
 
     override func viewDidLoad() {
         
@@ -33,15 +36,35 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-        if Auth.auth().currentUser != nil {
+        if FirebaseManager.shared.isLoggedIn {
             
-            // TODO: ログインしている場合はデータの読み込み
+            Database.database().reference().child("users").child(FirebaseManager.shared.isGrad ? "current" : "grad").observe(.value, with: { [unowned self] snapshot in
+                
+                let children = snapshot.children.map { ($0 as! DataSnapshot).value }
+                do {
+                    
+                    self.users = try FirebaseDecoder().decode([User].self, from: children)
+                    self.collectionView.reloadData()
+                } catch let error {
+                    
+                    print(error)
+                }
+            })
+            // 自分のデータもついでに登録しておく
+            let me = User(name: FirebaseManager.shared.loggedInUserName, iconUrl: FirebaseManager.shared.photoURL, uid: FirebaseManager.shared.uid ?? "unknown")
+            let data = try! FirebaseEncoder().encode(me)
+            Database.database().reference().child("users").child(FirebaseManager.shared.isGrad ? "grad" : "current").child(FirebaseManager.shared.uid ?? "unknown").setValue(data)
         } else {
             
             let viewController = UINavigationController(rootViewController: AccountBaseViewController.instantiate())
             viewController.isNavigationBarHidden = true
             present(viewController, animated: true, completion: nil)
         }
+    }
+    
+    deinit {
+        
+        Database.database().reference().child("users").child(FirebaseManager.shared.isGrad ? "current" : "grad").removeAllObservers()
     }
 }
 
@@ -54,16 +77,14 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        // TODO: 配列から取ってくる。
-        return 50
+        return users.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MainCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         
-        // TODO: 実際のデータに置き換え
-        cell.iconImageView.image = UIImage(named: "prof.jpg")
-        cell.nameLabel.text = "とうよう"
+        cell.iconImageView.kf.setImage(with: users[indexPath.row].iconUrl, placeholder: #imageLiteral(resourceName: "placeholder-icon"))
+        cell.nameLabel.text = users[indexPath.row].name
         return cell
     }
 }

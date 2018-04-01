@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import CodableFirebase
+import Kingfisher
 
 class PhotoViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -19,11 +22,40 @@ class PhotoViewController: UIViewController {
         }
     }
     
+    var photos: [Photo] = []
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         title = "Photos"
         navigationController?.setupBarColor()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        if FirebaseManager.shared.isLoggedIn {
+            
+            /// 卒業生はみんなから送られてきた写真、その他の人は自分が送った写真が見れるようにする
+            /// つまり写真を送るときは二箇所に保存しておく
+            Database.database().reference().child("photos").child(FirebaseManager.shared.isGrad ? "current" : "grad").child(FirebaseManager.shared.uid ?? "unknown").observe(.value, with: { [unowned self] snapshot in
+                
+                let children = snapshot.children.map { ($0 as! DataSnapshot).value }
+                do {
+                    
+                    self.photos = try FirebaseDecoder().decode([Photo].self, from: children)
+                    self.collectionView.reloadData()
+                } catch let error {
+                    
+                    print(error)
+                }
+            })
+        }
+    }
+    
+    deinit {
+        
+        Database.database().reference().child("photos").child(FirebaseManager.shared.isGrad ? "current" : "grad").child(FirebaseManager.shared.uid ?? "unknown").removeAllObservers()
     }
 }
 
@@ -36,14 +68,14 @@ extension PhotoViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 50
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell: PhotoCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         
-        cell.imageView.image = UIImage(named: "prof.jpg")
+        cell.imageView.kf.setImage(with: photos[indexPath.row].url, placeholder: #imageLiteral(resourceName: "placeholder-icon"))
         return cell
     }
 }

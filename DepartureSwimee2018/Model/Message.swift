@@ -22,7 +22,7 @@ struct Photo: Codable {
 
 struct User: Codable {
     
-    let name: String
-    let iconUrl: URL
-    let photos: [Photo]
+    let name: String?
+    let iconUrl: URL?
+    let uid: String
 }

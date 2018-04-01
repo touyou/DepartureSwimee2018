@@ -26,7 +26,7 @@ class FirebaseManager {
     
     var loggedInEmail: String? {
         
-        return Auth.auth().currentUser?.displayName
+        return Auth.auth().currentUser?.email
     }
     
     var photoURL: URL? {
@@ -37,6 +37,16 @@ class FirebaseManager {
     var uid: String? {
         
         return Auth.auth().currentUser?.uid
+    }
+    
+    var isGrad: Bool {
+        
+        if let email = loggedInEmail {
+            
+            let domain = String(email.split(separator: "@").last!)
+            return domain == "swimee.com"
+        }
+        return false
     }
     
     private var timestamp: String {

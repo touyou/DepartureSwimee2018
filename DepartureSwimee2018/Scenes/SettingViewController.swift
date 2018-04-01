@@ -49,7 +49,7 @@ class SettingViewController: UIViewController {
         if FirebaseManager.shared.isLoggedIn {
             
             nameTextField.text = FirebaseManager.shared.loggedInUserName
-            iconImageView.kf.setImage(with: FirebaseManager.shared.photoURL)
+            iconImageView.kf.setImage(with: FirebaseManager.shared.photoURL, placeholder: #imageLiteral(resourceName: "placeholder-icon"))
         } else {
             
             let viewController = UINavigationController(rootViewController: AccountBaseViewController.instantiate())
