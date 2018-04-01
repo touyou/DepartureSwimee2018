@@ -149,6 +149,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCb-T8-b0c">
+                                <rect key="frame" x="30.5" y="199" width="79" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="画像を変更する">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapChangeImageButton" destination="o2g-8N-1Li" eventType="touchUpInside" id="M6V-Ed-v96"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="新しいパスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jym-iv-RlK">
                                 <rect key="frame" x="128" y="123" width="231" height="21"/>
                                 <nil key="textColor"/>
@@ -167,6 +177,7 @@
                             <constraint firstItem="cWB-jj-Spc" firstAttribute="centerX" secondItem="HaF-hV-D2I" secondAttribute="centerX" id="4Bl-Zw-4d0"/>
                             <constraint firstItem="KXz-iL-CUW" firstAttribute="trailing" secondItem="0uD-GN-Wda" secondAttribute="trailing" constant="16" id="9Tl-QV-XtD"/>
                             <constraint firstItem="tZ6-5R-k2u" firstAttribute="leading" secondItem="dMK-7i-Pa7" secondAttribute="trailing" constant="8" id="GNY-Bw-4FM"/>
+                            <constraint firstItem="pCb-T8-b0c" firstAttribute="centerX" secondItem="dMK-7i-Pa7" secondAttribute="centerX" id="I5x-OH-yNH"/>
                             <constraint firstItem="tZ6-5R-k2u" firstAttribute="top" secondItem="KXz-iL-CUW" secondAttribute="top" constant="30" id="PQM-HQ-aSf"/>
                             <constraint firstItem="WtE-AX-ukr" firstAttribute="leading" secondItem="cWB-jj-Spc" secondAttribute="leading" id="QM5-MK-5Xz"/>
                             <constraint firstItem="cWB-jj-Spc" firstAttribute="top" secondItem="dMK-7i-Pa7" secondAttribute="bottom" constant="70" id="U93-zV-Qhz"/>
@@ -180,6 +191,7 @@
                             <constraint firstItem="0uD-GN-Wda" firstAttribute="leading" secondItem="dMK-7i-Pa7" secondAttribute="trailing" constant="8" id="t3P-4R-AsE"/>
                             <constraint firstItem="KXz-iL-CUW" firstAttribute="trailing" secondItem="jym-iv-RlK" secondAttribute="trailing" constant="16" id="vqg-5A-pe7"/>
                             <constraint firstItem="0uD-GN-Wda" firstAttribute="top" secondItem="jym-iv-RlK" secondAttribute="bottom" constant="8" id="w3I-KT-2Nh"/>
+                            <constraint firstItem="pCb-T8-b0c" firstAttribute="top" secondItem="dMK-7i-Pa7" secondAttribute="bottom" constant="5" id="y93-IU-xaF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KXz-iL-CUW"/>
                     </view>

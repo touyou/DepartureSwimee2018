@@ -24,14 +24,14 @@ class SettingViewController: UIViewController {
         
         didSet {
             
-            nameTextField.addBorderBottom(1.0)
+            passwordTextField.addBorderBottom(1.0)
         }
     }
     @IBOutlet weak var repasswordTextField: UITextField! {
         
         didSet {
             
-            nameTextField.addBorderBottom(1.0)
+            repasswordTextField.addBorderBottom(1.0)
         }
     }
     
@@ -99,5 +99,40 @@ class SettingViewController: UIViewController {
             
             print(error)
         }
+    }
+    
+    @IBAction func tapChangeImageButton() {
+        
+        let _ = UIAlertController(title: "画像を変更する", message: "変更する方法を選択してください。", preferredStyle: .actionSheet)
+            .addAction(title: "カメラ", style: .default, handler: { [unowned self] _ in
+                
+                self.presentPickerController(sourceType: .camera)
+            })
+            .addAction(title: "アルバム", style: .default, handler: { [unowned self] _ in
+                
+                self.presentPickerController(sourceType: .photoLibrary)
+            })
+            .addAction(title: "キャンセル", style: .cancel, handler: nil)
+            .show()
+    }
+    
+    private func presentPickerController(sourceType: UIImagePickerControllerSourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            let picker = UIImagePickerController()
+            picker.sourceType = sourceType
+            picker.delegate = self
+            present(picker, animated: true, completion: nil)
+        }
+    }
+}
+
+extension SettingViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        dismiss(animated: true, completion: nil)
+        
+        iconImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        FirebaseManager.shared.updateUserInfo(photo: iconImageView.image, {})
     }
 }

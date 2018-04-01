@@ -41,7 +41,7 @@ class FirebaseManager {
     
     private var timestamp: String {
         
-        return String(Date().timeIntervalSince1970 * 10000)
+        return String(Date().timeIntervalSince1970 * 100000)
     }
     
     func updateUserInfo(displayName: String? = nil, email: String? = nil, photo: UIImage? = nil, password: String? = nil, _ completion: () -> Void) {
@@ -83,14 +83,16 @@ class FirebaseManager {
         if let data = UIImagePNGRepresentation(image) {
             
             let path = "images/\(uid ?? "unknown")/" + (isProfile ? "prof/" : "") + timestamp + ".jpg"
-            ref.child(path).putData(data)
-            ref.child(path).downloadURL(completion: { url, error in
+            ref.child(path).putData(data, metadata: nil, completion: { _, _ in
                 
-                if let error = error {
+                ref.child(path).downloadURL(completion: { url, error in
                     
-                    print(error)
-                }
-                completion(url)
+                    if let error = error {
+                        
+                        print(error)
+                    }
+                    completion(url)
+                })
             })
         }
     }
