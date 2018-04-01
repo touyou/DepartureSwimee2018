@@ -77,4 +77,12 @@ extension UIView {
             layer.shadowOpacity = newValue
         }
     }
+    
+    func addBorderBottom(_ height: CGFloat) {
+        
+        let border = CALayer()
+        border.frame = CGRect(x: 0, y: self.frame.height - height, width: self.frame.width, height: height)
+        border.backgroundColor = borderColor?.cgColor
+        self.layer.addSublayer(border)
+    }
 }

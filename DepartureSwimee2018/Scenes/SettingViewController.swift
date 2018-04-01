@@ -13,7 +13,27 @@ import Kingfisher
 class SettingViewController: UIViewController {
     
     @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField! {
+        
+        didSet {
+            
+            nameTextField.addBorderBottom(1.0)
+        }
+    }
+    @IBOutlet weak var passwordTextField: UITextField! {
+        
+        didSet {
+            
+            nameTextField.addBorderBottom(1.0)
+        }
+    }
+    @IBOutlet weak var repasswordTextField: UITextField! {
+        
+        didSet {
+            
+            nameTextField.addBorderBottom(1.0)
+        }
+    }
     
     override func viewDidLoad() {
         
@@ -41,6 +61,29 @@ class SettingViewController: UIViewController {
     @IBAction func tapUpdateButton() {
         
         FirebaseManager.shared.updateUserInfo(displayName: nameTextField.text, {})
+        
+        guard let password = passwordTextField.text, password != "" else {
+            
+            return
+        }
+        
+        guard let repassword = repasswordTextField.text, password == repassword else {
+            
+            let _ = UIAlertController(title: "パスワードが違います", message: "同じパスワードをもう一度入力してください。", preferredStyle: .alert)
+                .addAction(title: "OK")
+                .show()
+            return
+        }
+        
+        FirebaseManager.shared.updateUserInfo(password: password, { [weak self] in
+            
+            guard let `self` = self else {
+                
+                return
+            }
+            self.passwordTextField.text = ""
+            self.repasswordTextField.text = ""
+        })
     }
     
     @IBAction func tapLogoutButton() {

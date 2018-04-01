@@ -77,11 +77,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ユーザー名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tZ6-5R-k2u">
-                                <rect key="frame" x="128" y="133.5" width="231" height="21"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ユーザー名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tZ6-5R-k2u">
+                                <rect key="frame" x="128" y="94" width="231" height="21"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWB-jj-Spc">
                                 <rect key="frame" x="70" y="264" width="234" height="50"/>
@@ -133,12 +138,36 @@
                                     <action selector="tapLogoutButton" destination="o2g-8N-1Li" eventType="touchUpInside" id="nXI-Ty-S3J"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="新しいパスワードを再入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uD-GN-Wda">
+                                <rect key="frame" x="128" y="152" width="231" height="21"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="新しいパスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jym-iv-RlK">
+                                <rect key="frame" x="128" y="123" width="231" height="21"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="jym-iv-RlK" firstAttribute="leading" secondItem="dMK-7i-Pa7" secondAttribute="trailing" constant="8" id="0u1-aL-jYc"/>
                             <constraint firstItem="cWB-jj-Spc" firstAttribute="centerX" secondItem="HaF-hV-D2I" secondAttribute="centerX" id="4Bl-Zw-4d0"/>
+                            <constraint firstItem="KXz-iL-CUW" firstAttribute="trailing" secondItem="0uD-GN-Wda" secondAttribute="trailing" constant="16" id="9Tl-QV-XtD"/>
                             <constraint firstItem="tZ6-5R-k2u" firstAttribute="leading" secondItem="dMK-7i-Pa7" secondAttribute="trailing" constant="8" id="GNY-Bw-4FM"/>
-                            <constraint firstItem="tZ6-5R-k2u" firstAttribute="centerY" secondItem="dMK-7i-Pa7" secondAttribute="centerY" id="L7t-kB-E7R"/>
+                            <constraint firstItem="tZ6-5R-k2u" firstAttribute="top" secondItem="KXz-iL-CUW" secondAttribute="top" constant="30" id="PQM-HQ-aSf"/>
                             <constraint firstItem="WtE-AX-ukr" firstAttribute="leading" secondItem="cWB-jj-Spc" secondAttribute="leading" id="QM5-MK-5Xz"/>
                             <constraint firstItem="cWB-jj-Spc" firstAttribute="top" secondItem="dMK-7i-Pa7" secondAttribute="bottom" constant="70" id="U93-zV-Qhz"/>
                             <constraint firstItem="WtE-AX-ukr" firstAttribute="top" secondItem="cWB-jj-Spc" secondAttribute="bottom" constant="30" id="XHG-dP-mSL"/>
@@ -146,7 +175,11 @@
                             <constraint firstItem="dMK-7i-Pa7" firstAttribute="leading" secondItem="KXz-iL-CUW" secondAttribute="leading" constant="20" id="ayl-54-BCS"/>
                             <constraint firstItem="WtE-AX-ukr" firstAttribute="centerX" secondItem="HaF-hV-D2I" secondAttribute="centerX" id="l6d-De-65U"/>
                             <constraint firstItem="KXz-iL-CUW" firstAttribute="trailing" secondItem="tZ6-5R-k2u" secondAttribute="trailing" constant="16" id="mBv-p0-onk"/>
+                            <constraint firstItem="jym-iv-RlK" firstAttribute="top" secondItem="tZ6-5R-k2u" secondAttribute="bottom" constant="8" id="msX-qB-XMj"/>
                             <constraint firstItem="dMK-7i-Pa7" firstAttribute="top" secondItem="KXz-iL-CUW" secondAttribute="top" constant="30" id="naG-pH-qRO"/>
+                            <constraint firstItem="0uD-GN-Wda" firstAttribute="leading" secondItem="dMK-7i-Pa7" secondAttribute="trailing" constant="8" id="t3P-4R-AsE"/>
+                            <constraint firstItem="KXz-iL-CUW" firstAttribute="trailing" secondItem="jym-iv-RlK" secondAttribute="trailing" constant="16" id="vqg-5A-pe7"/>
+                            <constraint firstItem="0uD-GN-Wda" firstAttribute="top" secondItem="jym-iv-RlK" secondAttribute="bottom" constant="8" id="w3I-KT-2Nh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KXz-iL-CUW"/>
                     </view>
@@ -154,6 +187,8 @@
                     <connections>
                         <outlet property="iconImageView" destination="dMK-7i-Pa7" id="wmb-Da-o6u"/>
                         <outlet property="nameTextField" destination="tZ6-5R-k2u" id="LLH-8R-OeC"/>
+                        <outlet property="passwordTextField" destination="jym-iv-RlK" id="fWN-QT-EcW"/>
+                        <outlet property="repasswordTextField" destination="0uD-GN-Wda" id="ezo-2a-gZk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NjM-W0-r6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
