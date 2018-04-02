@@ -51,11 +51,41 @@
                     <navigationItem key="navigationItem" id="e3T-8S-0yd"/>
                     <connections>
                         <outlet property="collectionView" destination="dXG-KP-CsM" id="bIM-0E-Avk"/>
+                        <segue destination="QvB-Rd-zMR" kind="show" identifier="toPhoto" id="5sE-i7-1A5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="273-y1-UQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-930" y="-394"/>
+        </scene>
+        <!--Photo Preview View Controller-->
+        <scene sceneID="j2i-93-Bwj">
+            <objects>
+                <viewController id="QvB-Rd-zMR" customClass="PhotoPreviewViewController" customModule="DepartureSwimee2018" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="riN-JG-xPU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lv9-Ns-9q8">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lv9-Ns-9q8" firstAttribute="trailing" secondItem="Vuf-se-iLC" secondAttribute="trailing" id="9Q9-wE-RC4"/>
+                            <constraint firstItem="lv9-Ns-9q8" firstAttribute="leading" secondItem="Vuf-se-iLC" secondAttribute="leading" id="etz-Cc-IzM"/>
+                            <constraint firstItem="lv9-Ns-9q8" firstAttribute="top" secondItem="Vuf-se-iLC" secondAttribute="top" id="whP-mr-cmE"/>
+                            <constraint firstItem="lv9-Ns-9q8" firstAttribute="bottom" secondItem="Vuf-se-iLC" secondAttribute="bottom" id="z0a-iQ-n9U"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vuf-se-iLC"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="lv9-Ns-9q8" id="1Jn-gg-ydO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6jf-93-4C1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-114.40000000000001" y="-394.45277361319341"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="Eql-zG-gkC">
@@ -279,11 +309,63 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="vqA-f5-egt" id="8j4-eF-9MG"/>
+                        <segue destination="QvB-Rd-zMR" kind="show" identifier="toPhoto" id="EjY-4r-QvG"/>
+                        <segue destination="Rcr-Oc-LAu" kind="show" identifier="toEdit" id="d6o-Wq-xQ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTk-YN-phe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-114.40000000000001" y="-1101.4992503748126"/>
+        </scene>
+        <!--Edit-->
+        <scene sceneID="jtE-P8-lVm">
+            <objects>
+                <viewController id="Rcr-Oc-LAu" customClass="EditViewController" customModule="DepartureSwimee2018" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M5c-uc-wLC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DA-bT-5n2">
+                                <rect key="frame" x="16" y="94" width="343" height="494"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4DA-bT-5n2" firstAttribute="top" secondItem="QV1-qk-DUo" secondAttribute="top" constant="30" id="4BG-lJ-yEK"/>
+                            <constraint firstItem="QV1-qk-DUo" firstAttribute="bottom" secondItem="4DA-bT-5n2" secondAttribute="bottom" constant="30" id="B97-eQ-jB1"/>
+                            <constraint firstItem="4DA-bT-5n2" firstAttribute="leading" secondItem="QV1-qk-DUo" secondAttribute="leading" constant="16" id="MY9-L5-ajU"/>
+                            <constraint firstItem="QV1-qk-DUo" firstAttribute="trailing" secondItem="4DA-bT-5n2" secondAttribute="trailing" constant="16" id="XSZ-Ql-CvK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QV1-qk-DUo"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit" id="CAJ-7L-f7E">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="yhC-Jd-lBL">
+                            <connections>
+                                <action selector="tapDoneButton:" destination="Rcr-Oc-LAu" id="X2f-Cp-eKb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="messageTextView" destination="4DA-bT-5n2" id="7ic-m4-4jF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ecG-CM-lOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="628" y="-1101.4992503748126"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wod-ht-ng8">
@@ -363,4 +445,7 @@
             <point key="canvasLocation" x="-1818" y="323"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="EjY-4r-QvG"/>
+    </inferredMetricsTieBreakers>
 </document>

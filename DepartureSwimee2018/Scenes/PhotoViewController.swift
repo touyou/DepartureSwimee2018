@@ -57,6 +57,15 @@ class PhotoViewController: UIViewController {
         
         Database.database().reference().child("photos").child(FirebaseManager.shared.isGrad ? "current" : "grad").child(FirebaseManager.shared.uid).removeAllObservers()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toPhoto" {
+            
+            let viewController = segue.destination as! PhotoPreviewViewController
+            viewController.photoUrl = photos[sender as! Int].url
+        }
+    }
 }
 
 extension PhotoViewController: UICollectionViewDataSource {
@@ -82,6 +91,10 @@ extension PhotoViewController: UICollectionViewDataSource {
 
 extension PhotoViewController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "toPhoto", sender: indexPath.row)
+    }
 }
 
 extension PhotoViewController: UICollectionViewDelegateFlowLayout {

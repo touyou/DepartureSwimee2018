@@ -18,6 +18,7 @@ class SettingViewController: UIViewController {
         didSet {
             
             nameTextField.addBorderBottom(1.0)
+            nameTextField.delegate = self
         }
     }
     @IBOutlet weak var passwordTextField: UITextField! {
@@ -25,6 +26,7 @@ class SettingViewController: UIViewController {
         didSet {
             
             passwordTextField.addBorderBottom(1.0)
+            passwordTextField.delegate = self
         }
     }
     @IBOutlet weak var repasswordTextField: UITextField! {
@@ -32,8 +34,11 @@ class SettingViewController: UIViewController {
         didSet {
             
             repasswordTextField.addBorderBottom(1.0)
+            repasswordTextField.delegate = self
         }
     }
+    
+    var refresh: UIRefreshControl?
     
     override func viewDidLoad() {
         
@@ -133,6 +138,22 @@ extension SettingViewController: UINavigationControllerDelegate, UIImagePickerCo
         dismiss(animated: true, completion: nil)
         
         iconImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        FirebaseManager.shared.updateUserInfo(photo: iconImageView.image, {})
+        refresh = UIRefreshControl()
+        refresh?.beginRefreshing()
+        view.addSubview(refresh!)
+        FirebaseManager.shared.updateUserInfo(photo: iconImageView.image, {
+            
+            refresh?.endRefreshing()
+            refresh?.removeFromSuperview()
+        })
+    }
+}
+
+extension SettingViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
     }
 }

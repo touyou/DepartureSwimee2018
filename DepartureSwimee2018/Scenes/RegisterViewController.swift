@@ -35,6 +35,16 @@ class RegisterViewController: UIViewController {
             repasswordTextField.cornerRadius = repasswordTextField.bounds.height / 2
         }
     }
+    
+    @IBOutlet weak var mentorTextField: UITextField! {
+        
+        didSet {
+            
+            mentorTextField.delegate = self
+            mentorTextField.cornerRadius = mentorTextField.bounds.height / 2
+        }
+    }
+    
     @IBOutlet var registerButtonTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -81,10 +91,14 @@ class RegisterViewController: UIViewController {
         
         Auth.auth().createUser(withEmail: email, password: password, completion: { [unowned self] user, error in
             
-            print(user?.email ?? "not found")
-            print(error ?? "")
             if error == nil {
                 
+                if let text = self.userNameTextField.text, text != "" {
+                    
+                    let request = user?.createProfileChangeRequest()
+                    request?.displayName = text
+                    request?.commitChanges(completion: nil)
+                }
                 self.dismiss(animated: true, completion: nil)
             }
         })

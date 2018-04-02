@@ -245,6 +245,15 @@
                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="mentor-name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gBz-bq-Msf">
+                                <rect key="frame" x="30" y="291" width="315" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LQt-7p-Ew9"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -254,6 +263,8 @@
                             <constraint firstItem="LSc-of-QAP" firstAttribute="centerX" secondItem="RG8-NS-FbU" secondAttribute="centerX" id="GZD-Ga-m0d"/>
                             <constraint firstItem="zes-z5-j97" firstAttribute="trailing" secondItem="pdU-75-1zC" secondAttribute="trailing" constant="50" id="IGR-9e-409"/>
                             <constraint firstItem="pdU-75-1zC" firstAttribute="leading" secondItem="zes-z5-j97" secondAttribute="leading" constant="50" id="RAr-pB-usL"/>
+                            <constraint firstItem="zes-z5-j97" firstAttribute="trailing" secondItem="gBz-bq-Msf" secondAttribute="trailing" constant="30" id="Tgf-qV-btb"/>
+                            <constraint firstItem="gBz-bq-Msf" firstAttribute="top" secondItem="iGG-4h-JRB" secondAttribute="bottom" constant="15" id="VCZ-Xw-m4K"/>
                             <constraint firstItem="zes-z5-j97" firstAttribute="trailing" secondItem="kdb-1F-LGD" secondAttribute="trailing" constant="30" id="Wdd-zF-4p5"/>
                             <constraint firstItem="5pe-q3-Crb" firstAttribute="top" secondItem="RG8-NS-FbU" secondAttribute="top" id="WmE-cs-eG6"/>
                             <constraint firstItem="zes-z5-j97" firstAttribute="trailing" secondItem="LqO-Lv-dqL" secondAttribute="trailing" constant="30" id="XZj-qg-GBj"/>
@@ -265,6 +276,7 @@
                             <constraint firstItem="iGG-4h-JRB" firstAttribute="top" secondItem="LqO-Lv-dqL" secondAttribute="bottom" constant="15" id="hiF-gc-qaN"/>
                             <constraint firstItem="5pe-q3-Crb" firstAttribute="bottom" secondItem="zes-z5-j97" secondAttribute="bottom" id="j01-wp-wZK"/>
                             <constraint firstItem="5pe-q3-Crb" firstAttribute="leading" secondItem="zes-z5-j97" secondAttribute="leading" id="n4K-bc-ehc"/>
+                            <constraint firstItem="gBz-bq-Msf" firstAttribute="leading" secondItem="zes-z5-j97" secondAttribute="leading" constant="30" id="nRw-yc-cpm"/>
                             <constraint firstItem="36Y-WY-qWg" firstAttribute="top" secondItem="pdU-75-1zC" secondAttribute="bottom" constant="10" id="scx-PB-2Xf"/>
                             <constraint firstItem="kdb-1F-LGD" firstAttribute="leading" secondItem="zes-z5-j97" secondAttribute="leading" constant="30" id="tma-nY-Ke0"/>
                             <constraint firstItem="LqO-Lv-dqL" firstAttribute="top" secondItem="kdb-1F-LGD" secondAttribute="bottom" constant="15" id="zkj-jH-u2c"/>
@@ -272,6 +284,7 @@
                         <viewLayoutGuide key="safeArea" id="zes-z5-j97"/>
                     </view>
                     <connections>
+                        <outlet property="mentorTextField" destination="gBz-bq-Msf" id="ugi-6V-uzh"/>
                         <outlet property="passwordTextField" destination="LqO-Lv-dqL" id="KIF-gH-Cmt"/>
                         <outlet property="registerButtonTopConstraint" destination="scx-PB-2Xf" id="yFS-G0-1bg"/>
                         <outlet property="repasswordTextField" destination="iGG-4h-JRB" id="9j2-IG-dMF"/>

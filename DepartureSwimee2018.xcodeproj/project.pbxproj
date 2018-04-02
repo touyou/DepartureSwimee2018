@@ -14,6 +14,8 @@
 		46071C8E205BE530002AB83F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8D205BE530002AB83F /* Assets.xcassets */; };
 		46071C91205BE530002AB83F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46071C8F205BE530002AB83F /* LaunchScreen.storyboard */; };
 		46071C9B205C0859002AB83F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46071C9A205C0858002AB83F /* GoogleService-Info.plist */; };
+		462B74B12071A4AA00866970 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462B74B02071A4AA00866970 /* PhotoPreviewViewController.swift */; };
+		462B74B32071A61C00866970 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462B74B22071A61C00866970 /* EditViewController.swift */; };
 		462FB55E206FC28300145B4B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FB55D206FC28300145B4B /* FirebaseManager.swift */; };
 		46ABB1BF206F812200262F75 /* MessageTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */; };
 		46ABB1C1206F812D00262F75 /* MessageTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46ABB1C0206F812D00262F75 /* MessageTableViewHeaderFooterView.xib */; };
@@ -61,6 +63,8 @@
 		46071C90205BE530002AB83F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46071C92205BE530002AB83F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46071C9A205C0858002AB83F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		462B74B02071A4AA00866970 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
+		462B74B22071A61C00866970 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		462FB55D206FC28300145B4B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		46ABB1C0206F812D00262F75 /* MessageTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 				46E28F2B206F794E007FB30D /* MessageViewController.swift */,
 				46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */,
 				46ABB1C0206F812D00262F75 /* MessageTableViewHeaderFooterView.xib */,
+				462B74B02071A4AA00866970 /* PhotoPreviewViewController.swift */,
+				462B74B22071A61C00866970 /* EditViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 				46E28EF4206F2A93007FB30D /* UIView+Extensions.swift in Sources */,
 				46E28EF9206F2A93007FB30D /* UIAlertController+Extensions.swift in Sources */,
 				46E28EF7206F2A93007FB30D /* UIColor+Extensions.swift in Sources */,
+				462B74B12071A4AA00866970 /* PhotoPreviewViewController.swift in Sources */,
 				46E28EF6206F2A93007FB30D /* UITabBarController+Extensions.swift in Sources */,
 				46E28F16206F5BB2007FB30D /* MainCollectionViewCell.swift in Sources */,
 				46E28F02206F2A93007FB30D /* StoryboardInstantiable.swift in Sources */,
@@ -438,6 +445,7 @@
 				46E28F0A206F4A4E007FB30D /* RegisterViewController.swift in Sources */,
 				46E28EFC206F2A93007FB30D /* UserDefaults+Extensions.swift in Sources */,
 				46E28F10206F5013007FB30D /* SettingViewController.swift in Sources */,
+				462B74B32071A61C00866970 /* EditViewController.swift in Sources */,
 				46E28F0C206F4F84007FB30D /* MainViewController.swift in Sources */,
 				46E28F21206F6E83007FB30D /* MessageTableViewCell.swift in Sources */,
 				46ABB1BF206F812200262F75 /* MessageTableViewHeaderFooterView.swift in Sources */,

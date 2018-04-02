@@ -82,6 +82,21 @@ class MessageViewController: UIViewController {
         Database.database().reference().child("users").child(FirebaseManager.shared.isGrad ? "current" : "grad").child(opponentUid).removeAllObservers()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toPhoto" {
+            
+            let viewController = segue.destination as! PhotoPreviewViewController
+            viewController.photoUrl = messages[sender as! Int].photoUrl
+        }
+        if segue.identifier == "toEdit" {
+            
+            let viewController = segue.destination as! EditViewController
+            viewController.opponentUid = opponentUid
+            viewController.message = sender as! Message
+        }
+    }
+    
     private func presentPickerController(sourceType: UIImagePickerControllerSourceType) {
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
             let picker = UIImagePickerController()
@@ -130,23 +145,10 @@ extension MessageViewController: UITableViewDataSource {
                 let _ = UIAlertController(title: "メッセージの追加", message: "追加するものを選んでください。", preferredStyle: .actionSheet)
                     .addAction(title: "メッセージ", style: .default, handler: { _ in
                         
-                        let alert = UIAlertController(title: "メッセージ", message: "メッセージを入力してください。", preferredStyle: .alert)
-                            .addAction(title: "キャンセル", style: .cancel, handler: nil)
+                        let key = Database.database().reference().child("messages").child(self.opponentUid).child(FirebaseManager.shared.uid).childByAutoId().key
+                        let message = Message(fromUser: FirebaseManager.shared.uid, message: nil, photoUrl: nil, key: key, gradPhotoKey: nil, currentPhotoKey: nil)
                         
-                        let action = UIAlertAction(title: "追加", style: .default, handler: { _ in
-                            
-                            guard let textFields = alert.textFields,
-                                let textField = textFields.first else { return }
-                            
-                            let key = Database.database().reference().child("messages").child(self.opponentUid).child(FirebaseManager.shared.uid).childByAutoId().key
-                            let message = Message(fromUser: FirebaseManager.shared.uid, message: textField.text, photoUrl: nil, key: key, gradPhotoKey: nil, currentPhotoKey: nil)
-                            let messageData = try! FirebaseEncoder().encode(message)
-                            
-                            Database.database().reference().child("messages").child(self.opponentUid).child(FirebaseManager.shared.uid).child(key).setValue(messageData)
-                        })
-                        alert.addAction(action)
-                        alert.addTextField(configurationHandler: nil)
-                        alert.show()
+                        self.performSegue(withIdentifier: "toEdit", sender: message)
                     })
                     .addAction(title: "写真", style: .default, handler: { _ in
                         
@@ -185,6 +187,22 @@ extension MessageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 116.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row < messages.count {
+            
+            if messages[indexPath.row].message != nil {
+                
+                // メッセージ編集画面へ
+                performSegue(withIdentifier: "toEdit", sender: messages[indexPath.row])
+            } else if messages[indexPath.row].photoUrl != nil {
+                
+                // 画像のプレビューへ
+                performSegue(withIdentifier: "toPhoto", sender: indexPath.row)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
