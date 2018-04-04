@@ -238,6 +238,9 @@ extension MessageViewController: UINavigationControllerDelegate, UIImagePickerCo
         dismiss(animated: true, completion: nil)
         
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+        let refresh = UIRefreshControl()
+        refresh.beginRefreshing()
+        self.view.addSubview(refresh)
         FirebaseManager.shared.uploadPhoto(image, isProfile: false, completion: { [unowned self] url in
             
             // メッセージとしてのデータ
@@ -255,6 +258,9 @@ extension MessageViewController: UINavigationControllerDelegate, UIImagePickerCo
             
             Database.database().reference().child("photos").child("grad").child(self.opponentUid).child(gradKey).setValue(photoData)
             Database.database().reference().child("photos").child("current").child(FirebaseManager.shared.uid).child(currentKey).setValue(photoData)
+            
+            refresh.endRefreshing()
+            refresh.removeFromSuperview()
         })
     }
 }

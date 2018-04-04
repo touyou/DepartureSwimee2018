@@ -11,7 +11,7 @@ import Firebase
 import CodableFirebase
 
 class EditViewController: UIViewController {
-
+    
     @IBOutlet weak var messageTextView: UITextView!
     
     var message: Message!
@@ -36,4 +36,16 @@ class EditViewController: UIViewController {
         
         navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func tapCancelButton(_ sender: Any) {
+        
+        let _ = UIAlertController(title: "保存されていません", message: "本当に前の画面に戻りますか？", preferredStyle: .alert)
+            .addAction(title: "OK", style: .default, handler: { [unowned self] _ in
+                
+                self.navigationController?.popViewController(animated: true)
+            })
+            .addAction(title: "キャンセル", style: .cancel, handler: nil)
+            .show()
+    }
+    
 }
