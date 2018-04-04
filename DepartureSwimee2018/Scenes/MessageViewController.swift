@@ -152,7 +152,7 @@ extension MessageViewController: UITableViewDataSource {
                     })
                     .addAction(title: "写真", style: .default, handler: { _ in
                         
-                        let _ = UIAlertController(title: "写真を選択", message: "写真の洗濯方法を選んでください。", preferredStyle: .actionSheet)
+                        let _ = UIAlertController(title: "写真を選択", message: "写真の選択方法を選んでください。", preferredStyle: .actionSheet)
                             .addAction(title: "カメラ", style: .default, handler: { _ in
                                 
                                 self.presentPickerController(sourceType: .camera)
@@ -193,7 +193,7 @@ extension MessageViewController: UITableViewDelegate {
         
         if indexPath.row < messages.count {
             
-            if messages[indexPath.row].message != nil {
+            if messages[indexPath.row].message != nil && !FirebaseManager.shared.isGrad {
                 
                 // メッセージ編集画面へ
                 performSegue(withIdentifier: "toEdit", sender: messages[indexPath.row])
@@ -203,6 +203,8 @@ extension MessageViewController: UITableViewDelegate {
                 performSegue(withIdentifier: "toPhoto", sender: indexPath.row)
             }
         }
+        
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -221,6 +223,11 @@ extension MessageViewController: UITableViewDelegate {
                 Database.database().reference().child("photos").child("current").child(FirebaseManager.shared.uid).child(currentKey).removeValue()
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        return !FirebaseManager.shared.isGrad
     }
 }
 
