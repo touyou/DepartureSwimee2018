@@ -12,10 +12,17 @@ import CodableFirebase
 
 class EditViewController: UIViewController {
     
-    @IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var messageTextView: UITextView! {
+        
+        didSet {
+            
+            messageTextView.delegate = self
+        }
+    }
     
     var message: Message!
     var opponentUid: String!
+    var isEdited: Bool = false
     
     override func viewDidLoad() {
         
@@ -39,13 +46,27 @@ class EditViewController: UIViewController {
     
     @IBAction func tapCancelButton(_ sender: Any) {
         
-        let _ = UIAlertController(title: "保存されていません", message: "本当に前の画面に戻りますか？", preferredStyle: .alert)
-            .addAction(title: "OK", style: .default, handler: { [unowned self] _ in
-                
-                self.navigationController?.popViewController(animated: true)
-            })
-            .addAction(title: "キャンセル", style: .cancel, handler: nil)
-            .show()
+        if isEdited {
+            
+            let _ = UIAlertController(title: "保存されていません", message: "本当に前の画面に戻りますか？", preferredStyle: .alert)
+                .addAction(title: "OK", style: .default, handler: { [unowned self] _ in
+                    
+                    self.navigationController?.popViewController(animated: true)
+                })
+                .addAction(title: "キャンセル", style: .cancel, handler: nil)
+                .show()
+        } else {
+            
+            navigationController?.popViewController(animated: true)
+        }
     }
     
+}
+
+extension EditViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        
+        isEdited = true
+    }
 }
