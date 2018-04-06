@@ -38,7 +38,7 @@ class SettingViewController: UIViewController {
         }
     }
     
-    var refresh: UIRefreshControl?
+    var refresh: UIActivityIndicatorView?
     
     override func viewDidLoad() {
         
@@ -137,14 +137,17 @@ extension SettingViewController: UINavigationControllerDelegate, UIImagePickerCo
         
         dismiss(animated: true, completion: nil)
         
-        iconImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        refresh = UIRefreshControl()
-        refresh?.beginRefreshing()
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        refresh = UIActivityIndicatorView()
+        refresh?.activityIndicatorViewStyle = .gray
+        refresh?.center = self.view.center
+        refresh?.startAnimating()
         view.addSubview(refresh!)
-        FirebaseManager.shared.updateUserInfo(photo: iconImageView.image, {
+        FirebaseManager.shared.updateUserInfo(photo: image, {}, { [unowned self] url in
             
-            refresh?.endRefreshing()
-            refresh?.removeFromSuperview()
+            self.refresh?.stopAnimating()
+            self.refresh?.removeFromSuperview()
+            self.iconImageView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "placeholder-icon"))
         })
     }
 }

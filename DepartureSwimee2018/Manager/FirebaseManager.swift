@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseStorage
+import CodableFirebase
 
 class FirebaseManager {
     
@@ -54,14 +55,19 @@ class FirebaseManager {
         return String(Date().timeIntervalSince1970 * 100000)
     }
     
-    func updateUserInfo(displayName: String? = nil, email: String? = nil, photo: UIImage? = nil, password: String? = nil, _ completion: () -> Void) {
+    func updateUserInfo(displayName: String? = nil, email: String? = nil, photo: UIImage? = nil, password: String? = nil, _ completion: () -> Void, _ photoCompletion: ((URL?) -> Void)? = nil) {
         
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         
         if let displayName = displayName {
             
             changeRequest?.displayName = displayName
-            changeRequest?.commitChanges(completion: nil)
+            changeRequest?.commitChanges(completion: { _ in
+                
+                let me = User(name: FirebaseManager.shared.loggedInUserName, iconUrl: FirebaseManager.shared.photoURL, uid: FirebaseManager.shared.uid)
+                let data = try! FirebaseEncoder().encode(me)
+                Database.database().reference().child("users").child(FirebaseManager.shared.isGrad ? "grad" : "current").child(FirebaseManager.shared.uid).setValue(data)
+            })
         }
         
         if let email = email {
@@ -74,7 +80,13 @@ class FirebaseManager {
             uploadPhoto(photo, isProfile: true, completion: { url in
                 
                 changeRequest?.photoURL = url
-                changeRequest?.commitChanges(completion: nil)
+                changeRequest?.commitChanges(completion: { _ in
+                    
+                    let me = User(name: FirebaseManager.shared.loggedInUserName, iconUrl: FirebaseManager.shared.photoURL, uid: FirebaseManager.shared.uid)
+                    let data = try! FirebaseEncoder().encode(me)
+                    Database.database().reference().child("users").child(FirebaseManager.shared.isGrad ? "grad" : "current").child(FirebaseManager.shared.uid).setValue(data)
+                })
+                photoCompletion?(url)
             })
         }
         
@@ -92,7 +104,7 @@ class FirebaseManager {
         
         if let data = UIImagePNGRepresentation(image) {
             
-            let path = "images/\(uid ?? "unknown")/" + (isProfile ? "prof/" : "") + timestamp + ".jpg"
+            let path = "images/\(uid)/" + (isProfile ? "prof/" : "") + timestamp + ".jpg"
             ref.child(path).putData(data, metadata: nil, completion: { _, _ in
                 
                 ref.child(path).downloadURL(completion: { url, error in
