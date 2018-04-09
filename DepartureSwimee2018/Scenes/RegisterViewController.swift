@@ -93,7 +93,7 @@ class RegisterViewController: UIViewController {
             
             if error == nil {
                 
-                if let text = self.userNameTextField.text, text != "" {
+                if let text = self.mentorTextField.text, text != "" {
                     
                     let request = user?.createProfileChangeRequest()
                     request?.displayName = text
