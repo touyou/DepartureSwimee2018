@@ -89,7 +89,7 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        sender.startLoading()
+        sender.startLoading(sender.center)
         Auth.auth().createUser(withEmail: email, password: password, completion: { [unowned self] user, error in
             
             if error == nil {
@@ -102,12 +102,18 @@ class RegisterViewController: UIViewController {
                 }
                 sender.stopLoading()
                 self.dismiss(animated: true, completion: nil)
+            } else {
+                
+                sender.stopLoading()
+                let _ = UIAlertController(title: "エラー", message: error!.localizedDescription, preferredStyle: .alert)
+                    .addAction(title: "OK")
+                    .show()
             }
         })
     }
     
     @IBAction func tapLoginButton() {
-
+        
         navigationController?.popViewController(animated: true)
     }
     

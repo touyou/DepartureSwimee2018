@@ -13,12 +13,12 @@ class LoadingButton: UIButton {
     var indicatorView: UIActivityIndicatorView!
     var titleString: String?
     
-    func startLoading() {
+    func startLoading(_ center: CGPoint) {
         
         indicatorView = UIActivityIndicatorView()
         indicatorView.hidesWhenStopped = true
         indicatorView.activityIndicatorViewStyle = .whiteLarge
-        indicatorView.center = self.center
+        indicatorView.center = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         self.addSubview(indicatorView)
         titleString = self.title(for: .normal)
         setTitle(nil, for: .normal)

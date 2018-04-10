@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
         /// 卒業メンターのメルアドは固定
         /// https://docs.google.com/spreadsheets/d/1p8oYTyV2CZd30ngzIMb7By9xYAge5Lg5j0VF869O84E/edit?usp=sharing
         /// 現役メンターは自分のメルアドで認証してもらう
-        sender.startLoading()
+        sender.startLoading(sender.center)
         Auth.auth().signIn(withEmail: email, password: password, completion: { [unowned self] user, error in
             
             print(user?.email ?? "not found")
@@ -67,6 +67,12 @@ class LoginViewController: UIViewController {
                 
                 sender.stopLoading()
                 self.dismiss(animated: true, completion: nil)
+            } else {
+                
+                sender.stopLoading()
+                let _ = UIAlertController(title: "エラー", message: error!.localizedDescription, preferredStyle: .alert)
+                    .addAction(title: "OK")
+                    .show()
             }
         })
     }
