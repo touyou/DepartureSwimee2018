@@ -23,6 +23,7 @@ class LoadingButton: UIButton {
         titleString = self.title(for: .normal)
         setTitle(nil, for: .normal)
         indicatorView.startAnimating()
+        self.isEnabled = false
     }
     
     func stopLoading() {
@@ -30,5 +31,6 @@ class LoadingButton: UIButton {
         indicatorView.stopAnimating()
         indicatorView.removeFromSuperview()
         setTitle(titleString, for: .normal)
+        self.isEnabled = true
     }
 }
