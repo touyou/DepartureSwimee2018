@@ -55,7 +55,7 @@ class RegisterViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
-    @IBAction func tapRegisterButton() {
+    @IBAction func tapRegisterButton(_ sender: LoadingButton) {
         
         guard let email = userNameTextField.text, email != "" else {
             
@@ -89,6 +89,7 @@ class RegisterViewController: UIViewController {
             return
         }
         
+        sender.startLoading()
         Auth.auth().createUser(withEmail: email, password: password, completion: { [unowned self] user, error in
             
             if error == nil {
@@ -99,6 +100,7 @@ class RegisterViewController: UIViewController {
                     request?.displayName = text
                     request?.commitChanges(completion: nil)
                 }
+                sender.stopLoading()
                 self.dismiss(animated: true, completion: nil)
             }
         })

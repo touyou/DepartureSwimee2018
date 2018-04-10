@@ -17,6 +17,7 @@
 		462B74B12071A4AA00866970 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462B74B02071A4AA00866970 /* PhotoPreviewViewController.swift */; };
 		462B74B32071A61C00866970 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462B74B22071A61C00866970 /* EditViewController.swift */; };
 		462FB55E206FC28300145B4B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462FB55D206FC28300145B4B /* FirebaseManager.swift */; };
+		46775430207C3A4600FB9ABD /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4677542F207C3A4600FB9ABD /* LoadingButton.swift */; };
 		46ABB1BF206F812200262F75 /* MessageTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */; };
 		46ABB1C1206F812D00262F75 /* MessageTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46ABB1C0206F812D00262F75 /* MessageTableViewHeaderFooterView.xib */; };
 		46ABB1C4206F8B0900262F75 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABB1C3206F8B0900262F75 /* Message.swift */; };
@@ -66,6 +67,7 @@
 		462B74B02071A4AA00866970 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 		462B74B22071A61C00866970 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		462FB55D206FC28300145B4B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		4677542F207C3A4600FB9ABD /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		46ABB1C0206F812D00262F75 /* MessageTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		46ABB1C3206F8B0900262F75 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				46ABB1C0206F812D00262F75 /* MessageTableViewHeaderFooterView.xib */,
 				462B74B02071A4AA00866970 /* PhotoPreviewViewController.swift */,
 				462B74B22071A61C00866970 /* EditViewController.swift */,
+				4677542F207C3A4600FB9ABD /* LoadingButton.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				46E28EF7206F2A93007FB30D /* UIColor+Extensions.swift in Sources */,
 				462B74B12071A4AA00866970 /* PhotoPreviewViewController.swift in Sources */,
 				46E28EF6206F2A93007FB30D /* UITabBarController+Extensions.swift in Sources */,
+				46775430207C3A4600FB9ABD /* LoadingButton.swift in Sources */,
 				46E28F16206F5BB2007FB30D /* MainCollectionViewCell.swift in Sources */,
 				46E28F02206F2A93007FB30D /* StoryboardInstantiable.swift in Sources */,
 				46E28F25206F6EA3007FB30D /* ImageTableViewCell.swift in Sources */,

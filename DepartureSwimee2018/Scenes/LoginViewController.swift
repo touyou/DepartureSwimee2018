@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
-    @IBAction func tapLoginButton() {
+    @IBAction func tapLoginButton(_ sender: LoadingButton) {
         
         guard let email = userNameTextField.text, email != "" else {
             
@@ -58,12 +58,14 @@ class LoginViewController: UIViewController {
         /// 卒業メンターのメルアドは固定
         /// https://docs.google.com/spreadsheets/d/1p8oYTyV2CZd30ngzIMb7By9xYAge5Lg5j0VF869O84E/edit?usp=sharing
         /// 現役メンターは自分のメルアドで認証してもらう
+        sender.startLoading()
         Auth.auth().signIn(withEmail: email, password: password, completion: { [unowned self] user, error in
             
             print(user?.email ?? "not found")
             print(error ?? "")
             if error == nil {
                 
+                sender.stopLoading()
                 self.dismiss(animated: true, completion: nil)
             }
         })
