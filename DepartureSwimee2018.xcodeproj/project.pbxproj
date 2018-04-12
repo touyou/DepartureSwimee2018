@@ -21,6 +21,7 @@
 		46ABB1BF206F812200262F75 /* MessageTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */; };
 		46ABB1C1206F812D00262F75 /* MessageTableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46ABB1C0206F812D00262F75 /* MessageTableViewHeaderFooterView.xib */; };
 		46ABB1C4206F8B0900262F75 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ABB1C3206F8B0900262F75 /* Message.swift */; };
+		46D329E1208023040031E626 /* AccountBaseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46D329E0208023030031E626 /* AccountBaseViewController.storyboard */; };
 		46E28EF4206F2A93007FB30D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE4206F2A92007FB30D /* UIView+Extensions.swift */; };
 		46E28EF6206F2A93007FB30D /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE6206F2A92007FB30D /* UITabBarController+Extensions.swift */; };
 		46E28EF7206F2A93007FB30D /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28EE7206F2A92007FB30D /* UIColor+Extensions.swift */; };
@@ -39,7 +40,6 @@
 		46E28F0C206F4F84007FB30D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F0B206F4F84007FB30D /* MainViewController.swift */; };
 		46E28F0E206F5009007FB30D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F0D206F5009007FB30D /* PhotoViewController.swift */; };
 		46E28F10206F5013007FB30D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F0F206F5013007FB30D /* SettingViewController.swift */; };
-		46E28F11206F5085007FB30D /* AccountBaseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F08206F4883007FB30D /* AccountBaseViewController.storyboard */; };
 		46E28F13206F5953007FB30D /* 03スマートフォントUI.otf in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F12206F5953007FB30D /* 03スマートフォントUI.otf */; };
 		46E28F16206F5BB2007FB30D /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E28F14206F5BB2007FB30D /* MainCollectionViewCell.swift */; };
 		46E28F17206F5BB2007FB30D /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46E28F15206F5BB2007FB30D /* MainCollectionViewCell.xib */; };
@@ -71,6 +71,7 @@
 		46ABB1BE206F812200262F75 /* MessageTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		46ABB1C0206F812D00262F75 /* MessageTableViewHeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		46ABB1C3206F8B0900262F75 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		46D329E0208023030031E626 /* AccountBaseViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AccountBaseViewController.storyboard; sourceTree = "<group>"; };
 		46E28EE4206F2A92007FB30D /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		46E28EE6206F2A92007FB30D /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
 		46E28EE7206F2A92007FB30D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		46E28EF2206F2A92007FB30D /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		46E28EF3206F2A92007FB30D /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		46E28F06206F3D7C007FB30D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		46E28F08206F4883007FB30D /* AccountBaseViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = AccountBaseViewController.storyboard; path = /Users/touyou/Projects/iOS/touyou/DepartureSwimee2018/DepartureSwimee2018/Scenes/AccountBaseViewController.storyboard; sourceTree = "<absolute>"; };
 		46E28F09206F4A4E007FB30D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		46E28F0B206F4F84007FB30D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		46E28F0D206F5009007FB30D /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				46071C88205BE530002AB83F /* AccountBaseViewController.swift */,
-				46E28F08206F4883007FB30D /* AccountBaseViewController.storyboard */,
+				46D329E0208023030031E626 /* AccountBaseViewController.storyboard */,
 				46071C8A205BE530002AB83F /* Main.storyboard */,
 				46E28F06206F3D7C007FB30D /* LoginViewController.swift */,
 				46E28F09206F4A4E007FB30D /* RegisterViewController.swift */,
@@ -327,13 +327,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				46E28F13206F5953007FB30D /* 03スマートフォントUI.otf in Resources */,
-				46E28F11206F5085007FB30D /* AccountBaseViewController.storyboard in Resources */,
 				46071C91205BE530002AB83F /* LaunchScreen.storyboard in Resources */,
 				46E28F1E206F645A007FB30D /* PhotoCollectionViewCell.xib in Resources */,
 				46E28F26206F6EA3007FB30D /* ImageTableViewCell.xib in Resources */,
 				46071C9B205C0859002AB83F /* GoogleService-Info.plist in Resources */,
 				46071C8E205BE530002AB83F /* Assets.xcassets in Resources */,
 				46ABB1C1206F812D00262F75 /* MessageTableViewHeaderFooterView.xib in Resources */,
+				46D329E1208023040031E626 /* AccountBaseViewController.storyboard in Resources */,
 				46E28F17206F5BB2007FB30D /* MainCollectionViewCell.xib in Resources */,
 				46E28F22206F6E83007FB30D /* MessageTableViewCell.xib in Resources */,
 				46E28F2A206F6EAF007FB30D /* AddTableViewCell.xib in Resources */,
