@@ -24,6 +24,11 @@ class MainViewController: UIViewController {
     }
     
     var users: [User] = []
+    var messagedUserUID: [String] = []
+    var filteredUser: [User] {
+
+        return users.filter { messagedUserUID.index(of: $0.uid) != nil }
+    }
 
     override func viewDidLoad() {
         
@@ -54,6 +59,13 @@ class MainViewController: UIViewController {
             let me = User(name: FirebaseManager.shared.loggedInUserName, iconUrl: FirebaseManager.shared.photoURL, uid: FirebaseManager.shared.uid)
             let data = try! FirebaseEncoder().encode(me)
             Database.database().reference().child("users").child(FirebaseManager.shared.isGrad ? "grad" : "current").child(FirebaseManager.shared.uid).setValue(data)
+            if FirebaseManager.shared.isGrad {
+                Database.database().reference().child("messages").child(FirebaseManager.shared.uid).observe(.value, with: { [unowned self] snapshot in
+
+                    self.messagedUserUID = snapshot.children.map { ($0 as! DataSnapshot).key }
+                    self.collectionView.reloadData()
+                })
+            }
         } else {
             
             let viewController = UINavigationController(rootViewController: AccountBaseViewController.instantiate())
@@ -72,7 +84,13 @@ class MainViewController: UIViewController {
         if segue.identifier == "toMessage" {
             
             let viewController = segue.destination as! MessageViewController
-            viewController.opponentUid = users[sender as! Int].uid
+            if FirebaseManager.shared.isGrad {
+
+                viewController.opponentUid = filteredUser[sender as! Int].uid
+            } else {
+
+                viewController.opponentUid = users[sender as! Int].uid
+            }
         }
     }
 }
@@ -85,15 +103,30 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return users.count
+
+        if FirebaseManager.shared.isGrad {
+
+            return messagedUserUID.count
+        } else {
+
+            return users.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MainCollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        
-        cell.iconImageView.kf.setImage(with: users[indexPath.row].iconUrl, placeholder: #imageLiteral(resourceName: "placeholder-icon"))
-        cell.nameLabel.text = users[indexPath.row].name
+
+        let user: User
+        if FirebaseManager.shared.isGrad {
+
+            user = filteredUser[indexPath.row]
+        } else {
+
+            user = users[indexPath.row]
+        }
+
+        cell.iconImageView.kf.setImage(with: user.iconUrl, placeholder: #imageLiteral(resourceName: "placeholder-icon"))
+        cell.nameLabel.text = user.name
         return cell
     }
 }
