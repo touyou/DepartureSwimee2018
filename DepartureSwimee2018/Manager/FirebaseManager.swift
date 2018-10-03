@@ -102,7 +102,7 @@ class FirebaseManager {
         
         let ref = Storage.storage().reference()
         
-        if let data = UIImagePNGRepresentation(image) {
+        if let data = image.pngData() {
             
             let path = "images/\(uid)/" + (isProfile ? "prof/" : "") + timestamp + ".jpg"
             ref.child(path).putData(data, metadata: nil, completion: { _, _ in

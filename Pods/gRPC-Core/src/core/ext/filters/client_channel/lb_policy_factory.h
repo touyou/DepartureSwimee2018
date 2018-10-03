@@ -19,7 +19,8 @@
 #ifndef GRPC_CORE_EXT_FILTERS_CLIENT_CHANNEL_LB_POLICY_FACTORY_H
 #define GRPC_CORE_EXT_FILTERS_CLIENT_CHANNEL_LB_POLICY_FACTORY_H
 
-#include "src/core/lib/iomgr/exec_ctx.h"
+#include <grpc/support/port_platform.h>
+
 #include "src/core/lib/iomgr/resolve_address.h"
 
 #include "src/core/ext/filters/client_channel/client_channel_factory.h"
@@ -99,6 +100,10 @@ grpc_arg grpc_lb_addresses_create_channel_arg(
 /** Returns the \a grpc_lb_addresses instance in \a channel_args or NULL */
 grpc_lb_addresses* grpc_lb_addresses_find_channel_arg(
     const grpc_channel_args* channel_args);
+
+// Returns true if addresses contains at least one balancer address.
+bool grpc_lb_addresses_contains_balancer_address(
+    const grpc_lb_addresses& addresses);
 
 //
 // LB policy factory

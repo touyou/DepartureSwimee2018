@@ -19,6 +19,9 @@
 #ifndef GRPC_CORE_EXT_FILTERS_CLIENT_CHANNEL_LB_POLICY_H
 #define GRPC_CORE_EXT_FILTERS_CLIENT_CHANNEL_LB_POLICY_H
 
+#include <grpc/support/port_platform.h>
+
+#include "src/core/ext/filters/client_channel/client_channel_channelz.h"
 #include "src/core/ext/filters/client_channel/client_channel_factory.h"
 #include "src/core/ext/filters/client_channel/subchannel.h"
 #include "src/core/lib/gprpp/abstract.h"
@@ -141,6 +144,14 @@ class LoadBalancingPolicy
   /// consider whether this method is still needed.
   virtual void ExitIdleLocked() GRPC_ABSTRACT;
 
+  /// populates child_subchannels and child_channels with the uuids of this
+  /// LB policy's referenced children. This is not invoked from the
+  /// client_channel's combiner. The implementation is responsible for
+  /// providing its own synchronization.
+  virtual void FillChildRefsForChannelz(ChildRefsList* child_subchannels,
+                                        ChildRefsList* child_channels)
+      GRPC_ABSTRACT;
+
   void Orphan() override {
     // Invoke ShutdownAndUnrefLocked() inside of the combiner.
     GRPC_CLOSURE_SCHED(
@@ -160,6 +171,8 @@ class LoadBalancingPolicy
   GRPC_ABSTRACT_BASE_CLASS
 
  protected:
+  GPRC_ALLOW_CLASS_TO_USE_NON_PUBLIC_DELETE
+
   explicit LoadBalancingPolicy(const Args& args);
   virtual ~LoadBalancingPolicy();
 
@@ -192,6 +205,12 @@ class LoadBalancingPolicy
   grpc_pollset_set* interested_parties_;
   /// Callback to force a re-resolution.
   grpc_closure* request_reresolution_;
+
+  // Dummy classes needed for alignment issues.
+  // See https://github.com/grpc/grpc/issues/16032 for context.
+  // TODO(ncteisen): remove this as soon as the issue is resolved.
+  ChildRefsList dummy_list_foo;
+  ChildRefsList dummy_list_bar;
 };
 
 }  // namespace grpc_core

@@ -17,7 +17,7 @@ class LoadingButton: UIButton {
         
         indicatorView = UIActivityIndicatorView()
         indicatorView.hidesWhenStopped = true
-        indicatorView.activityIndicatorViewStyle = .whiteLarge
+        indicatorView.style = .whiteLarge
         indicatorView.center = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         self.addSubview(indicatorView)
         titleString = self.title(for: .normal)

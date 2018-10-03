@@ -23,7 +23,7 @@ class MessageViewController: UIViewController {
             tableView.dataSource = self
             tableView.delegate = self
             tableView.estimatedRowHeight = 44.0
-            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.rowHeight = UITableView.automaticDimension
             tableView.separatorStyle = .none
         }
     }
@@ -94,11 +94,11 @@ class MessageViewController: UIViewController {
             
             let viewController = segue.destination as! EditViewController
             viewController.opponentUid = opponentUid
-            viewController.message = sender as! Message
+            viewController.message = sender as? Message
         }
     }
     
-    private func presentPickerController(sourceType: UIImagePickerControllerSourceType) {
+    private func presentPickerController(sourceType: UIImagePickerController.SourceType) {
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
             let picker = UIImagePickerController()
             picker.sourceType = sourceType
@@ -147,7 +147,7 @@ extension MessageViewController: UITableViewDataSource {
                     .addAction(title: "メッセージ", style: .default, handler: { _ in
                         
                         let key = Database.database().reference().child("messages").child(self.opponentUid).child(FirebaseManager.shared.uid).childByAutoId().key
-                        let message = Message(fromUser: FirebaseManager.shared.uid, message: nil, photoUrl: nil, key: key, gradPhotoKey: nil, currentPhotoKey: nil)
+                        let message = Message(fromUser: FirebaseManager.shared.uid, message: nil, photoUrl: nil, key: key!, gradPhotoKey: nil, currentPhotoKey: nil)
                         
                         self.performSegue(withIdentifier: "toEdit", sender: message)
                     })
@@ -208,7 +208,7 @@ extension MessageViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if FirebaseManager.shared.isGrad { return }
         
@@ -234,13 +234,13 @@ extension MessageViewController: UITableViewDelegate {
 
 extension MessageViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         dismiss(animated: true, completion: nil)
         
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
+        guard let image = info[.originalImage] as? UIImage else { return }
         refresh = UIActivityIndicatorView()
-        refresh?.activityIndicatorViewStyle = .gray
+        refresh?.style = .gray
         refresh?.center = self.view.center
         refresh?.startAnimating()
         view.addSubview(refresh!)
@@ -250,17 +250,17 @@ extension MessageViewController: UINavigationControllerDelegate, UIImagePickerCo
             let key = Database.database().reference().child("messages").child(self.opponentUid).child(FirebaseManager.shared.uid).childByAutoId().key
             let gradKey = Database.database().reference().child("photos").child("grad").child(self.opponentUid).childByAutoId().key
             let currentKey = Database.database().reference().child("photos").child("current").child(FirebaseManager.shared.uid).childByAutoId().key
-            let message = Message(fromUser: FirebaseManager.shared.uid, message: nil, photoUrl: url, key: key, gradPhotoKey: gradKey, currentPhotoKey: currentKey)
+            let message = Message(fromUser: FirebaseManager.shared.uid, message: nil, photoUrl: url, key: key!, gradPhotoKey: gradKey, currentPhotoKey: currentKey)
             let messageData = try! FirebaseEncoder().encode(message)
             
-            Database.database().reference().child("messages").child(self.opponentUid).child(FirebaseManager.shared.uid).child(key).setValue(messageData)
+            Database.database().reference().child("messages").child(self.opponentUid).child(FirebaseManager.shared.uid).child(key!).setValue(messageData)
             
             // 写真一覧としてのデータ
             let photo = Photo(url: url)
             let photoData = try! FirebaseEncoder().encode(photo)
             
-            Database.database().reference().child("photos").child("grad").child(self.opponentUid).child(gradKey).setValue(photoData)
-            Database.database().reference().child("photos").child("current").child(FirebaseManager.shared.uid).child(currentKey).setValue(photoData)
+            Database.database().reference().child("photos").child("grad").child(self.opponentUid).child(gradKey!).setValue(photoData)
+            Database.database().reference().child("photos").child("current").child(FirebaseManager.shared.uid).child(currentKey!).setValue(photoData)
             
             self.refresh?.stopAnimating()
             self.refresh?.removeFromSuperview()

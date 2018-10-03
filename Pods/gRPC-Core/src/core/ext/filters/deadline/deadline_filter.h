@@ -17,6 +17,8 @@
 #ifndef GRPC_CORE_EXT_FILTERS_DEADLINE_DEADLINE_FILTER_H
 #define GRPC_CORE_EXT_FILTERS_DEADLINE_DEADLINE_FILTER_H
 
+#include <grpc/support/port_platform.h>
+
 #include "src/core/lib/channel/channel_stack.h"
 #include "src/core/lib/iomgr/timer.h"
 
@@ -35,12 +37,12 @@ typedef struct grpc_deadline_state {
   grpc_deadline_timer_state timer_state;
   grpc_timer timer;
   grpc_closure timer_callback;
-  // Closure to invoke when the call is complete.
+  // Closure to invoke when we receive trailing metadata.
   // We use this to cancel the timer.
-  grpc_closure on_complete;
-  // The original on_complete closure, which we chain to after our own
-  // closure is invoked.
-  grpc_closure* next_on_complete;
+  grpc_closure recv_trailing_metadata_ready;
+  // The original recv_trailing_metadata_ready closure, which we chain to
+  // after our own closure is invoked.
+  grpc_closure* original_recv_trailing_metadata_ready;
 } grpc_deadline_state;
 
 //

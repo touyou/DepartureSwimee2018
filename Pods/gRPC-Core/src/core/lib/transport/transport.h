@@ -19,6 +19,8 @@
 #ifndef GRPC_CORE_LIB_TRANSPORT_TRANSPORT_H
 #define GRPC_CORE_LIB_TRANSPORT_TRANSPORT_H
 
+#include <grpc/support/port_platform.h>
+
 #include <stddef.h>
 
 #include "src/core/lib/channel/context.h"
@@ -96,6 +98,19 @@ void grpc_transport_move_one_way_stats(grpc_transport_one_way_stats* from,
 void grpc_transport_move_stats(grpc_transport_stream_stats* from,
                                grpc_transport_stream_stats* to);
 
+// This struct (which is present in both grpc_transport_stream_op_batch
+// and grpc_transport_op_batch) is a convenience to allow filters or
+// transports to schedule a closure related to a particular batch without
+// having to allocate memory.  The general pattern is to initialize the
+// closure with the callback arg set to the batch and extra_arg set to
+// whatever state is associated with the handler (e.g., the call element
+// or the transport stream object).
+//
+// Note that this can only be used by the current handler of a given
+// batch on the way down the stack (i.e., whichever filter or transport is
+// currently handling the batch).  Once a filter or transport passes control
+// of the batch to the next handler, it cannot depend on the contents of
+// this struct anymore, because the next handler may reuse it.
 typedef struct {
   void* extra_arg;
   grpc_closure closure;
@@ -107,9 +122,15 @@ typedef struct grpc_transport_stream_op_batch_payload
 /* Transport stream op: a set of operations to perform on a transport
    against a single stream */
 typedef struct grpc_transport_stream_op_batch {
-  /** Should be enqueued when all requested operations (excluding recv_message
-      and recv_initial_metadata which have their own closures) in a given batch
-      have been completed. */
+  /** Should be scheduled when all of the non-recv operations in the batch
+      are complete.
+
+      The recv ops (recv_initial_metadata, recv_message, and
+      recv_trailing_metadata) each have their own callbacks.  If a batch
+      contains both recv ops and non-recv ops, on_complete should be
+      scheduled as soon as the non-recv ops are complete, regardless of
+      whether or not the recv ops are complete.  If a batch contains
+      only recv ops, on_complete can be null. */
   grpc_closure* on_complete;
 
   /** Values for the stream op (fields set are determined by flags above) */
@@ -134,9 +155,6 @@ typedef struct grpc_transport_stream_op_batch {
    */
   bool recv_trailing_metadata : 1;
 
-  /** Collect any stats into provided buffer, zero internal stat counters */
-  bool collect_stats : 1;
-
   /** Cancel this stream with the provided error */
   bool cancel_stream : 1;
 
@@ -153,8 +171,11 @@ struct grpc_transport_stream_op_batch_payload {
     /** Iff send_initial_metadata != NULL, flags associated with
         send_initial_metadata: a bitfield of GRPC_INITIAL_METADATA_xxx */
     uint32_t send_initial_metadata_flags;
-    // If non-NULL, will be set by the transport to the peer string
-    // (a char*, which the caller takes ownership of).
+    // If non-NULL, will be set by the transport to the peer string (a char*).
+    // The transport retains ownership of the string.
+    // Note: This pointer may be used by the transport after the
+    // send_initial_metadata op is completed.  It must remain valid
+    // until the call is destroyed.
     gpr_atm* peer_string;
   } send_initial_metadata;
 
@@ -164,15 +185,17 @@ struct grpc_transport_stream_op_batch_payload {
 
   struct {
     // The transport (or a filter that decides to return a failure before
-    // the op gets down to the transport) is responsible for calling
-    // grpc_byte_stream_destroy() on this.
+    // the op gets down to the transport) takes ownership.
     // The batch's on_complete will not be called until after the byte
-    // stream is destroyed.
-    grpc_byte_stream* send_message;
+    // stream is orphaned.
+    grpc_core::OrphanablePtr<grpc_core::ByteStream> send_message;
   } send_message;
 
   struct {
     grpc_metadata_batch* recv_initial_metadata;
+    // Flags are used only on the server side.  If non-null, will be set to
+    // a bitfield of the GRPC_INITIAL_METADATA_xxx macros (e.g., to
+    // indicate if the call is idempotent).
     uint32_t* recv_flags;
     /** Should be enqueued when initial metadata is ready to be processed. */
     grpc_closure* recv_initial_metadata_ready;
@@ -180,28 +203,29 @@ struct grpc_transport_stream_op_batch_payload {
     // immediately available.  This may be a signal that we received a
     // Trailers-Only response.
     bool* trailing_metadata_available;
-    // If non-NULL, will be set by the transport to the peer string
-    // (a char*, which the caller takes ownership of).
+    // If non-NULL, will be set by the transport to the peer string (a char*).
+    // The transport retains ownership of the string.
+    // Note: This pointer may be used by the transport after the
+    // recv_initial_metadata op is completed.  It must remain valid
+    // until the call is destroyed.
     gpr_atm* peer_string;
   } recv_initial_metadata;
 
   struct {
     // Will be set by the transport to point to the byte stream
     // containing a received message.
-    // The caller is responsible for calling grpc_byte_stream_destroy()
-    // on this byte stream.
-    grpc_byte_stream** recv_message;
+    // Will be NULL if trailing metadata is received instead of a message.
+    grpc_core::OrphanablePtr<grpc_core::ByteStream>* recv_message;
     /** Should be enqueued when one message is ready to be processed. */
     grpc_closure* recv_message_ready;
   } recv_message;
 
   struct {
     grpc_metadata_batch* recv_trailing_metadata;
-  } recv_trailing_metadata;
-
-  struct {
     grpc_transport_stream_stats* collect_stats;
-  } collect_stats;
+    /** Should be enqueued when initial metadata is ready to be processed. */
+    grpc_closure* recv_trailing_metadata_ready;
+  } recv_trailing_metadata;
 
   /** Forcefully close this stream.
       The HTTP2 semantics should be:

@@ -121,7 +121,7 @@ class SettingViewController: UIViewController {
             .show()
     }
     
-    private func presentPickerController(sourceType: UIImagePickerControllerSourceType) {
+    private func presentPickerController(sourceType: UIImagePickerController.SourceType) {
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
             let picker = UIImagePickerController()
             picker.sourceType = sourceType
@@ -133,13 +133,13 @@ class SettingViewController: UIViewController {
 
 extension SettingViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         dismiss(animated: true, completion: nil)
         
-        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        let image = info[.originalImage] as? UIImage
         refresh = UIActivityIndicatorView()
-        refresh?.activityIndicatorViewStyle = .gray
+        refresh?.style = .gray
         refresh?.center = self.view.center
         refresh?.startAnimating()
         view.addSubview(refresh!)

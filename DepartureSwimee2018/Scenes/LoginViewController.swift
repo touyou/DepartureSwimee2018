@@ -33,8 +33,8 @@ class LoginViewController: UIViewController {
         
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @IBAction func tapLoginButton(_ sender: LoadingButton) {
@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
         sender.startLoading(sender.center)
         Auth.auth().signIn(withEmail: email, password: password, completion: { [unowned self] user, error in
             
-            print(user?.email ?? "not found")
+//            print(user?.email ?? "not found")
             print(error ?? "")
             if error == nil {
                 
@@ -89,12 +89,12 @@ class LoginViewController: UIViewController {
             return
         }
         
-        guard let keyboardInfo = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
+        guard let keyboardInfo = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
             
             return
         }
         
-        guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval else {
+        guard let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else {
             
             return
         }

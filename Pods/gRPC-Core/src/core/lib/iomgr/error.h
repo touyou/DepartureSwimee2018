@@ -19,6 +19,8 @@
 #ifndef GRPC_CORE_LIB_IOMGR_ERROR_H
 #define GRPC_CORE_LIB_IOMGR_ERROR_H
 
+#include <grpc/support/port_platform.h>
+
 #include <inttypes.h>
 #include <stdbool.h>
 
@@ -120,6 +122,11 @@ typedef enum {
 #define GRPC_ERROR_NONE ((grpc_error*)NULL)
 #define GRPC_ERROR_OOM ((grpc_error*)2)
 #define GRPC_ERROR_CANCELLED ((grpc_error*)4)
+
+// debug only toggles that allow for a sanity to check that ensures we will
+// never create any errors in the per-RPC hotpath.
+void grpc_disable_error_creation();
+void grpc_enable_error_creation();
 
 const char* grpc_error_string(grpc_error* error);
 
