@@ -22,5 +22,14 @@ extension UINavigationController {
             self.navigationBar.prefersLargeTitles = true
             self.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         }
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithDefaultBackground()
+            appearance.backgroundColor = UIColor.Swimee.barOrange
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            self.navigationBar.scrollEdgeAppearance = appearance
+            self.navigationBar.standardAppearance = appearance
+        }
     }
 }

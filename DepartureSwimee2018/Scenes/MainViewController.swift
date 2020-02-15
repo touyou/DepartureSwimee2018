@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     var messagedUserUID: [String] = []
     var filteredUser: [User] {
 
-        return users.filter { messagedUserUID.index(of: $0.uid) != nil }
+        return users.filter { messagedUserUID.firstIndex(of: $0.uid) != nil }
     }
 
     override func viewDidLoad() {

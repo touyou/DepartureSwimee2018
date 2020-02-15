@@ -19,6 +19,7 @@
 
 #include <chrono>  // NOLINT(build/c++11)
 #include <functional>
+#include <memory>
 #include <string>
 #include <utility>
 
@@ -61,8 +62,6 @@ class DelayedOperation {
   std::function<void()> cancel_func_;
 };
 
-namespace internal {
-
 // An interface to a platform-specific executor of asynchronous operations
 // (called tasks on other platforms).
 //
@@ -92,8 +91,21 @@ class Executor {
     Operation operation;
   };
 
-  virtual ~Executor() {
-  }
+  // Creates a new serial Executor of the platform-appropriate type, and gives
+  // it the given label, if the implementation supports it.
+  //
+  // Note that this method has multiple definitions, depending on the platform.
+  static std::unique_ptr<Executor> CreateSerial(const char* label);
+
+  // Creates a new concurrent Executor of the platform-appropriate type, with
+  // at least the given number of threads, and gives it the given label, if the
+  // implementation supports it.
+  //
+  // Note that this method has multiple definitions, depending on the platform.
+  static std::unique_ptr<Executor> CreateConcurrent(const char* label,
+                                                    int threads);
+
+  virtual ~Executor() = default;
 
   // Schedules the `operation` to be asynchronously executed as soon as
   // possible, in FIFO order.
@@ -132,7 +144,6 @@ class Executor {
   virtual absl::optional<TaggedOperation> PopFromSchedule() = 0;
 };
 
-}  // namespace internal
 }  // namespace util
 }  // namespace firestore
 }  // namespace firebase

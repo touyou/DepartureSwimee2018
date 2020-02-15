@@ -25,6 +25,7 @@ class MessageViewController: UIViewController {
             tableView.estimatedRowHeight = 44.0
             tableView.rowHeight = UITableView.automaticDimension
             tableView.separatorStyle = .none
+            tableView.backgroundColor = .white
         }
     }
     

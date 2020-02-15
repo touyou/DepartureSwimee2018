@@ -14,19 +14,26 @@
  * limitations under the License.
  */
 
-#include "Firestore/core/src/firebase/firestore/util/filesystem_detail.h"
+#include <fstream>
+#include <sstream>
 
 #include "Firestore/core/src/firebase/firestore/util/filesystem.h"
-
-using firebase::firestore::util::Path;
+#include "Firestore/core/src/firebase/firestore/util/path.h"
+#include "Firestore/core/src/firebase/firestore/util/statusor.h"
+#include "Firestore/core/src/firebase/firestore/util/string_format.h"
 
 namespace firebase {
 namespace firestore {
 namespace util {
 
-Status RecursivelyCreateDir(const Path& path) {
-  Status result = detail::CreateDir(path);
-  if (result.ok() || result.code() != FirestoreErrorCode::NotFound) {
+Filesystem* Filesystem::Default() {
+  static Filesystem filesystem;
+  return &filesystem;
+}
+
+Status Filesystem::RecursivelyCreateDir(const Path& path) {
+  Status result = CreateDir(path);
+  if (result.ok() || result.code() != Error::NotFound) {
     // Successfully created the directory, it already existed, or some other
     // unrecoverable error.
     return result;
@@ -40,26 +47,72 @@ Status RecursivelyCreateDir(const Path& path) {
   }
 
   // Successfully created the parent so try again.
-  return detail::CreateDir(path);
+  return CreateDir(path);
 }
 
-Status RecursivelyDelete(const Path& path) {
+Status Filesystem::RecursivelyRemove(const Path& path) {
   Status status = IsDirectory(path);
   switch (status.code()) {
-    case FirestoreErrorCode::Ok:
-      return detail::RecursivelyDeleteDir(path);
+    case Error::Ok:
+      return RecursivelyRemoveDir(path);
 
-    case FirestoreErrorCode::FailedPrecondition:
+    case Error::FailedPrecondition:
       // Could be a file or something else. Attempt to delete it as a file
       // but otherwise allow that to fail if it's not a file.
-      return detail::DeleteFile(path);
+      return RemoveFile(path);
 
-    case FirestoreErrorCode::NotFound:
+    case Error::NotFound:
       return Status::OK();
 
     default:
       return status;
   }
+}
+
+Status Filesystem::RecursivelyRemoveDir(const Path& parent) {
+  std::unique_ptr<DirectoryIterator> iter = DirectoryIterator::Create(parent);
+  for (; iter->Valid(); iter->Next()) {
+    Status status = RecursivelyRemove(iter->file());
+    if (!status.ok()) {
+      return status;
+    }
+  }
+
+  if (!iter->status().ok()) {
+    if (iter->status().code() == Error::NotFound) {
+      return Status::OK();
+    }
+    return iter->status();
+  }
+  return RemoveDir(parent);
+}
+
+#if !__APPLE__
+Status Filesystem::ExcludeFromBackups(const Path&) {
+  // Non-Apple platforms don't yet implement exclusion from backups.
+  return Status::OK();
+}
+#endif  // !__APPLE__
+
+StatusOr<std::string> Filesystem::ReadFile(const Path& path) {
+  std::ifstream file{path.native_value()};
+  if (!file) {
+    // TODO(varconst): more error details. This will require platform-specific
+    // code, because `<iostream>` may not update `errno`.
+    return Status{Error::Unknown,
+                  StringFormat("File at path '%s' cannot be opened",
+                               path.ToUtf8String())};
+  }
+
+  std::stringstream buffer;
+  buffer << file.rdbuf();
+  return buffer.str();
+}
+
+bool IsEmptyDir(const Path& path) {
+  // If the DirectoryIterator is valid there's at least one entry.
+  auto iter = DirectoryIterator::Create(path);
+  return iter->status().ok() && !iter->Valid();
 }
 
 }  // namespace util
